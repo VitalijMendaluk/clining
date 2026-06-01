@@ -1019,6 +1019,11 @@ footer {
 #popup-service-badge.show { display: inline-block; }
 
 .popup-form { display: flex; flex-direction: column; gap: 14px; }
+.popup-datetime {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
 .popup-form input,
 .popup-form textarea {
   width: 100%;
@@ -1060,7 +1065,7 @@ footer {
   #hero {
     grid-template-columns: 1fr;
     padding-top: 80px;
-    min-height: 100dvh;
+    min-height: calc(100dvh + 70px);
   }
   .hero-left { padding: 20px 0 32px; order: 1; }
   .hero-right { order: -1; padding-top: 90px; padding-bottom: 8px; }
@@ -1085,7 +1090,7 @@ footer {
     flex-direction: column;
     justify-content: flex-end;
     padding: 0 5% 36px;
-    min-height: 100dvh;
+    min-height: calc(100dvh + 70px);
     margin-bottom: 0;
   }
   .hero-right {
@@ -1575,7 +1580,10 @@ footer {
       <input type="hidden" id="f-service" name="service">
       <input type="text" id="f-name" name="name" placeholder="Ваше ім'я" required minlength="2">
       <input type="tel" id="f-phone" name="phone" placeholder="+380 XX XXX XX XX" required>
-      <input type="datetime-local" id="f-date" name="date">
+      <div class="popup-datetime">
+        <input type="date" id="f-date" name="date">
+        <input type="time" id="f-time" name="time">
+      </div>
       <textarea id="f-comment" name="comment" placeholder="Коментар (необов'язково)" rows="3"></textarea>
       <button type="submit" class="btn-submit" data-uk="Надіслати заявку" data-en="Send Request">Надіслати заявку</button>
     </form>
@@ -1712,7 +1720,7 @@ function submitForm(e) {
   const service = document.getElementById('f-service').value;
   const name    = document.getElementById('f-name').value;
   const phone   = document.getElementById('f-phone').value;
-  const date    = document.getElementById('f-date').value;
+  const date    = [document.getElementById('f-date').value, document.getElementById('f-time').value].filter(Boolean).join(' ');
   const comment = document.getElementById('f-comment').value;
 
   // ─── Telegram Webhook (розкоментуй і вкажи токен та chat_id) ───
