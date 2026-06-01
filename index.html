@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Чисто завжди — професійний клінінг у Тернополі. Генеральне прибирання, регулярний догляд, миття вікон. Еко-засоби, гарантія якості. Тел: +380 335 184 537">
+<meta property="og:title" content="Чисто завжди — Клінінг у Тернополі">
+<meta property="og:description" content="Бездоганна чистота без зусиль з вашого боку. Еко-засоби, досвідчена команда, гарантія результату.">
+<meta property="og:type" content="website">
+<title>Чисто завжди — Клінінг Тернопіль</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧹</text></svg>">
+<style>
+/* ═══ ROOT VARIABLES ═══ */
+:root {
+  --pink: #b8e4f9;
+  --pink-light: #e0f4fd;
+  --pink-mid: #7dc8ef;
+  --rose: #2AACE2;
+  --rose-dark: #1a8fbd;
+  --cream: #f5fbff;
+  --lavender: #e8f6fd;
+  --text: #1a2a35;
+  --text-soft: #5a7a8a;
+  --white: #ffffff;
+  --radius: 18px;
+  --shadow: 0 4px 24px rgba(42,172,226,.10);
+  --shadow-lg: 0 12px 48px rgba(42,172,226,.18);
+  --tr: 0.35s ease;
+}
+
+/* ═══ RESET & BASE ═══ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+  cursor: none;
+}
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+button { cursor: none; font-family: inherit; }
+section { position: relative; }
+
+/* ═══ CUSTOM CURSOR ═══ */
+#cursor {
+  position: fixed;
+  width: 12px; height: 12px;
+  background: var(--rose);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: width .2s, height .2s, background .2s;
+  transform: translate(-50%, -50%);
+}
+#cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 2px solid var(--pink-mid);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: width .2s, height .2s, border-color .2s;
+  transform: translate(-50%, -50%);
+}
+body.cursor-hover #cursor { width: 20px; height: 20px; }
+body.cursor-hover #cursor-ring { width: 52px; height: 52px; border-color: var(--rose); }
+
+/* ═══ PARTICLES ═══ */
+#particles-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--pink-light), transparent 70%);
+  animation: floatParticle linear infinite;
+  opacity: 0;
+}
+@keyframes floatParticle {
+  0%   { transform: translateY(100vh) translateX(0) scale(0); opacity: 0; }
+  10%  { opacity: .6; }
+  90%  { opacity: .4; }
+  100% { transform: translateY(-10vh) translateX(40px) scale(1.2); opacity: 0; }
+}
+
+/* ═══ NAVBAR ═══ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 5%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background .4s ease, box-shadow .4s ease;
+  gap: 20px;
+}
+nav.at-top {
+  background: transparent;
+  box-shadow: none;
+}
+nav:not(.at-top) {
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 24px rgba(26,42,53,.08);
+}
+nav.at-top .nav-logo,
+nav.at-top .nav-links a { color: #fff; }
+nav.at-top .nav-links a:hover { color: var(--pink-light); }
+nav:not(.at-top) .nav-logo { color: var(--text); }
+nav:not(.at-top) .nav-links a { color: var(--text-soft); }
+nav:not(.at-top) .nav-links a:hover { color: var(--rose); }
+
+.nav-logo {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+  transition: color var(--tr);
+}
+.nav-logo span { color: var(--rose); }
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: .9rem;
+  font-weight: 500;
+  transition: color var(--tr);
+  letter-spacing: .01em;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.lang-switcher {
+  display: flex;
+  gap: 2px;
+  background: rgba(255,255,255,.15);
+  border-radius: 8px;
+  padding: 3px;
+  backdrop-filter: blur(8px);
+}
+nav:not(.at-top) .lang-switcher {
+  background: var(--lavender);
+}
+.lang-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.7);
+  font-size: .78rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all .2s;
+  min-height: 28px;
+  letter-spacing: .04em;
+}
+nav:not(.at-top) .lang-btn { color: var(--text-soft); }
+.lang-btn.active {
+  background: var(--rose);
+  color: #fff !important;
+}
+.btn-book-nav {
+  background: var(--rose);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: .88rem;
+  font-weight: 600;
+  transition: background var(--tr), transform .2s, box-shadow .2s;
+  white-space: nowrap;
+  min-height: 40px;
+  box-shadow: 0 4px 16px rgba(42,172,226,.35);
+}
+.btn-book-nav:hover {
+  background: var(--rose-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(42,172,226,.45);
+}
+
+/* Burger */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 4px;
+  min-height: 48px;
+  min-width: 48px;
+  align-items: center;
+  justify-content: center;
+}
+.burger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform .3s, opacity .3s, background .3s;
+}
+nav:not(.at-top) .burger span { background: var(--text); }
+.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 70px; left: 0; right: 0;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(20px);
+  padding: 20px 5% 30px;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 999;
+  box-shadow: 0 8px 32px rgba(26,42,53,.1);
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: transform .3s, opacity .3s;
+}
+.mobile-menu.open {
+  display: flex;
+  transform: translateY(0);
+  opacity: 1;
+}
+.mobile-menu a {
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--lavender);
+  transition: color var(--tr);
+}
+.mobile-menu a:hover { color: var(--rose); }
+.mobile-menu .btn-book-nav {
+  margin-top: 12px;
+  text-align: center;
+  width: 100%;
+}
+
+/* ═══ HERO ═══ */
+#hero {
+  position: relative;
+  min-height: calc(100vh + 70px);
+  margin-top: -70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 5%;
+  gap: 40px;
+}
+
+#hero-bg {
+  position: absolute;
+  inset: -6%;
+  background: url('images/hero.jpg') center/cover no-repeat;
+  opacity: .52;
+  z-index: 0;
+  animation: heroBreathe 9s ease-in-out infinite;
+  will-change: transform;
+}
+#hero-bg-fallback {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a6e9e 0%, #2AACE2 40%, #7dc8ef 70%, #e0f4fd 100%);
+  z-index: -1;
+}
+#hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(26,42,53,.72) 0%, rgba(26,42,53,.45) 45%, rgba(26,42,53,.08) 100%);
+  z-index: 1;
+}
+@keyframes heroBreathe {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
+
+.hero-left, .hero-right {
+  position: relative;
+  z-index: 2;
+  padding: 100px 0 60px;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,.18);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.3);
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.hero-left h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -.03em;
+  margin-bottom: 20px;
+}
+.hero-left h1 em {
+  font-style: normal;
+  color: var(--pink);
+}
+
+.hero-utp {
+  color: rgba(255,255,255,.82);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 36px;
+  max-width: 440px;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--rose);
+  color: #fff;
+  border: none;
+  padding: 16px 28px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all .25s;
+  box-shadow: 0 6px 24px rgba(42,172,226,.5);
+  min-height: 52px;
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  background: var(--rose-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(42,172,226,.55);
+}
+.btn-outline {
+  background: rgba(255,255,255,.12);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,.5);
+  padding: 16px 28px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all .25s;
+  min-height: 52px;
+  white-space: nowrap;
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,.22);
+  border-color: rgba(255,255,255,.8);
+  transform: translateY(-3px);
+}
+
+/* Hero bullets */
+.hero-bullets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.hero-bullet {
+  background: rgba(255,255,255,.14);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: transform .3s, background .3s;
+}
+.hero-bullet:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,.2);
+}
+.hero-bullet:last-child {
+  grid-column: 1 / -1;
+}
+.bullet-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+.bullet-text strong {
+  display: block;
+  color: #fff;
+  font-size: .92rem;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+.bullet-text span {
+  color: rgba(255,255,255,.68);
+  font-size: .8rem;
+  line-height: 1.4;
+}
+
+/* ═══ SCROLL REVEAL ═══ */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══ SECTION SHARED ═══ */
+.section-tag {
+  display: inline-block;
+  background: var(--lavender);
+  color: var(--rose);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+.section-title em {
+  font-style: normal;
+  color: var(--rose);
+}
+
+/* ═══ ABOUT ═══ */
+#about {
+  padding: 100px 5%;
+  background: var(--white);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.about-img-wrap {
+  overflow: hidden;
+  border-radius: 24px;
+  min-height: 480px;
+  position: relative;
+}
+.about-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+.about-img-wrap:hover img { transform: scale(1.04); }
+.about-img-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink) 50%, var(--pink-mid) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  transition: transform .6s ease;
+}
+.about-img-wrap:hover .about-img-placeholder { transform: scale(1.04); }
+
+.about-content { display: flex; flex-direction: column; justify-content: center; }
+.about-text {
+  color: var(--text-soft);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+.about-perks { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.about-perk {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: .95rem;
+  font-weight: 500;
+  color: var(--text);
+}
+.perk-check {
+  width: 28px; height: 28px;
+  background: var(--lavender);
+  color: var(--rose);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .85rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* ═══ SERVICES ═══ */
+#services {
+  padding: 100px 5%;
+  background: var(--cream);
+}
+.services-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 50px;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.service-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 2px solid transparent;
+  transition: transform .3s ease, border-color .3s, box-shadow .3s;
+  position: relative;
+  cursor: none;
+}
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--pink-mid);
+  box-shadow: 0 20px 50px rgba(42,172,226,.15);
+}
+.service-card:hover .service-img-wrap img,
+.service-card:hover .service-img-wrap .svc-placeholder { transform: scale(1.07); }
+
+.book-badge {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: var(--rose);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity .3s;
+  z-index: 5;
+  pointer-events: none;
+}
+.service-card:hover .book-badge { opacity: 1; }
+
+.service-img-wrap {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  position: relative;
+  background: var(--lavender);
+}
+.service-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+  display: block;
+}
+.svc-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  transition: transform .4s ease;
+}
+
+.service-body { padding: 20px 22px 22px; }
+.svc-num {
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--pink-mid);
+  letter-spacing: .1em;
+  margin-bottom: 6px;
+}
+.svc-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.svc-desc {
+  font-size: .85rem;
+  color: var(--text-soft);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+.svc-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.svc-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.svc-arrow {
+  width: 34px; height: 34px;
+  background: var(--lavender);
+  color: var(--text-soft);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: background var(--tr), color var(--tr);
+  flex-shrink: 0;
+}
+.service-card:hover .svc-arrow {
+  background: var(--rose);
+  color: #fff;
+}
+
+/* Hit package */
+.service-card.hit {
+  background: linear-gradient(135deg, #1e7cb8 0%, #2AACE2 50%, #54c0ef 100%);
+  border-color: transparent;
+}
+.service-card.hit .svc-num,
+.service-card.hit .svc-name,
+.service-card.hit .svc-desc,
+.service-card.hit .svc-price { color: #fff; }
+.service-card.hit .svc-desc { color: rgba(255,255,255,.8); }
+.service-card.hit .svc-arrow {
+  background: rgba(255,255,255,.25);
+  color: #fff;
+}
+.service-card.hit:hover .svc-arrow {
+  background: rgba(255,255,255,.4);
+}
+.hit-badge {
+  display: inline-block;
+  background: rgba(255,255,255,.25);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  letter-spacing: .04em;
+}
+.service-card.hit .svc-placeholder {
+  background: rgba(255,255,255,.1);
+}
+.service-card.hit .book-badge {
+  background: rgba(255,255,255,.3);
+  color: #fff;
+}
+
+/* ═══ REVIEWS ═══ */
+#reviews {
+  padding: 100px 5%;
+  background: var(--white);
+}
+.reviews-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+.reviews-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  -webkit-overflow-scrolling: touch;
+}
+.reviews-track::-webkit-scrollbar { height: 4px; }
+.reviews-track::-webkit-scrollbar-track { background: var(--lavender); border-radius: 4px; }
+.reviews-track::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 4px; }
+
+.review-card {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 28px 24px;
+  border: 1px solid var(--lavender);
+  transition: transform .3s, box-shadow .3s;
+}
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(42,172,226,.12);
+}
+.review-stars {
+  color: #f6a623;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+.review-text {
+  font-size: .9rem;
+  color: var(--text-soft);
+  line-height: 1.65;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.review-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.review-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose), var(--pink-mid));
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.review-name {
+  font-size: .88rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.review-date {
+  font-size: .78rem;
+  color: var(--text-soft);
+  margin-top: 2px;
+}
+
+/* ═══ FAQ ═══ */
+#faq {
+  padding: 100px 5%;
+  background: var(--cream);
+}
+.faq-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+.faq-list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.faq-item {
+  background: var(--white);
+  border-radius: 16px;
+  border: 2px solid transparent;
+  overflow: hidden;
+  transition: border-color .3s, box-shadow .3s;
+}
+.faq-item.open {
+  border-color: var(--pink-mid);
+  box-shadow: 0 8px 32px rgba(42,172,226,.12);
+}
+.faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 22px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: .97rem;
+  font-weight: 600;
+  color: var(--text);
+  min-height: 60px;
+  gap: 16px;
+}
+.faq-toggle {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: var(--lavender);
+  color: var(--text-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 300;
+  transition: background .3s, color .3s, transform .3s;
+  flex-shrink: 0;
+}
+.faq-item.open .faq-toggle {
+  background: var(--rose);
+  color: #fff;
+  transform: rotate(45deg);
+}
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, padding .3s ease;
+  padding: 0 22px;
+}
+.faq-item.open .faq-a {
+  max-height: 300px;
+  padding: 0 22px 20px;
+}
+.faq-a p {
+  font-size: .9rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.faq-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+.faq-cta p {
+  font-size: 1rem;
+  color: var(--text-soft);
+  margin-bottom: 16px;
+}
+
+/* ═══ FOOTER ═══ */
+footer {
+  background: var(--text);
+  color: rgba(255,255,255,.7);
+  padding: 70px 5% 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.footer-logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: -.02em;
+}
+.footer-logo span { color: var(--rose); }
+.footer-slogan {
+  font-size: .88rem;
+  line-height: 1.55;
+  margin-bottom: 22px;
+}
+.footer-socials { display: flex; gap: 10px; }
+.social-btn {
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,.08);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: background var(--tr), transform .2s;
+  text-decoration: none;
+  color: inherit;
+}
+.social-btn:hover {
+  background: var(--rose);
+  transform: translateY(-3px);
+}
+.footer-title {
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  margin-bottom: 18px;
+}
+.footer-nav { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-nav a {
+  font-size: .9rem;
+  transition: color var(--tr);
+}
+.footer-nav a:hover { color: var(--rose); }
+.footer-contacts { display: flex; flex-direction: column; gap: 10px; }
+.footer-contact {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: .88rem;
+  transition: color var(--tr);
+}
+.footer-contact:hover { color: var(--rose); }
+.contact-icon {
+  width: 26px;
+  text-align: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+  font-size: .8rem;
+  color: rgba(255,255,255,.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ═══ POPUP ═══ */
+#popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,42,53,.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+}
+#popup-overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+#popup {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  transform: translateY(30px) scale(.96);
+  transition: transform .35s ease;
+  box-shadow: 0 32px 80px rgba(26,42,53,.2);
+}
+#popup-overlay.show #popup {
+  transform: translateY(0) scale(1);
+}
+#popup-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 36px; height: 36px;
+  background: var(--lavender);
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  color: var(--text-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, color .2s;
+}
+#popup-close:hover { background: var(--rose); color: #fff; }
+#popup h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 6px;
+  letter-spacing: -.02em;
+}
+#popup-subtitle {
+  font-size: .88rem;
+  color: var(--text-soft);
+  margin-bottom: 20px;
+}
+#popup-service-badge {
+  display: none;
+  background: var(--lavender);
+  color: var(--rose);
+  font-size: .8rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+#popup-service-badge.show { display: inline-block; }
+
+.popup-form { display: flex; flex-direction: column; gap: 14px; }
+.popup-form input,
+.popup-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid var(--lavender);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: .92rem;
+  color: var(--text);
+  background: var(--cream);
+  transition: border-color .25s;
+  outline: none;
+  min-height: 48px;
+}
+.popup-form input:focus,
+.popup-form textarea:focus { border-color: var(--rose); }
+.popup-form textarea { resize: vertical; min-height: 90px; }
+.btn-submit {
+  background: var(--rose);
+  color: #fff;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background .25s, transform .2s, box-shadow .2s;
+  box-shadow: 0 6px 20px rgba(42,172,226,.4);
+  min-height: 52px;
+}
+.btn-submit:hover {
+  background: var(--rose-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(42,172,226,.5);
+}
+#f-service { display: none; }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 960px) {
+  #hero {
+    grid-template-columns: 1fr;
+    padding-top: 90px;
+  }
+  .hero-left { padding: 30px 0 20px; order: 1; }
+  .hero-right { order: -1; padding-top: 30px; }
+  .hero-bullets { grid-template-columns: 1fr 1fr; }
+  .hero-bullet:last-child { grid-column: unset; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid > *:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .burger { display: flex; }
+  .btn-book-nav { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-img-wrap { min-height: 260px !important; }
+  .about-img-placeholder { min-height: 260px !important; }
+  .services-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .hero-btns { flex-direction: column; }
+  .btn-primary, .btn-outline {
+    width: 100%;
+    text-align: center;
+  }
+  .hero-bullets { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  #popup { padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ CURSOR ═══ -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- ═══ PARTICLES ═══ -->
+<div id="particles-container"></div>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar" class="at-top">
+  <div class="nav-logo" data-uk="Чисто <span>завжди.</span>" data-en="Always <span>Clean.</span>">Чисто <span>завжди.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about" data-uk="Про нас" data-en="About">Про нас</a></li>
+    <li><a href="#services" data-uk="Послуги" data-en="Services">Послуги</a></li>
+    <li><a href="#reviews" data-uk="Відгуки" data-en="Reviews">Відгуки</a></li>
+    <li><a href="#faq" data-uk="FAQ" data-en="FAQ">FAQ</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('uk')">UA</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="btn-book-nav" onclick="openPopup()" data-uk="Записатись" data-en="Book Now">Записатись</button>
+    <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="closeMenu()" data-uk="Про нас" data-en="About">Про нас</a>
+  <a href="#services" onclick="closeMenu()" data-uk="Послуги" data-en="Services">Послуги</a>
+  <a href="#reviews" onclick="closeMenu()" data-uk="Відгуки" data-en="Reviews">Відгуки</a>
+  <a href="#faq" onclick="closeMenu()" data-uk="FAQ" data-en="FAQ">FAQ</a>
+  <button class="btn-book-nav" onclick="openPopup(); closeMenu();" data-uk="Записатись на прибирання" data-en="Book Cleaning">Записатись на прибирання</button>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div id="hero-bg-fallback"></div>
+  <div id="hero-bg"></div>
+  <div id="hero-overlay"></div>
+
+  <div class="hero-left reveal">
+    <div class="hero-badge" data-uk="✨ Клінінг Тернопіль" data-en="✨ Cleaning Ternopil">✨ Клінінг Тернопіль</div>
+    <h1 data-uk="Бездоганна чистота — <em>без зусиль</em> з вашого боку" data-en="Spotless clean — <em>effortlessly</em> for you">Бездоганна чистота — <em>без зусиль</em> з вашого боку</h1>
+    <p class="hero-utp" data-uk="Ми прибираємо так, щоб ви могли займатись тим, що важливо. Професійний клінінг квартир, офісів та комерційних приміщень у Тернополі." data-en="We clean so you can focus on what matters. Professional cleaning of apartments, offices and commercial spaces in Ternopil.">Ми прибираємо так, щоб ви могли займатись тим, що важливо. Професійний клінінг квартир, офісів та комерційних приміщень у Тернополі.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="openPopup()" data-uk="Записатись на прибирання" data-en="Book a Cleaning">Записатись на прибирання</button>
+      <button class="btn-outline" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})" data-uk="Дізнатися більше" data-en="Learn More">Дізнатися більше</button>
+    </div>
+  </div>
+
+  <div class="hero-right reveal">
+    <div class="hero-bullets">
+      <div class="hero-bullet">
+        <div class="bullet-icon">⚡</div>
+        <div class="bullet-text">
+          <strong data-uk="Швидко" data-en="Fast">Швидко</strong>
+          <span data-uk="Прибираємо за 2–4 години" data-en="Done in 2–4 hours">Прибираємо за 2–4 години</span>
+        </div>
+      </div>
+      <div class="hero-bullet">
+        <div class="bullet-icon">🧴</div>
+        <div class="bullet-text">
+          <strong data-uk="Еко-засоби" data-en="Eco Products">Еко-засоби</strong>
+          <span data-uk="Безпечно для дітей і тварин" data-en="Safe for kids & pets">Безпечно для дітей і тварин</span>
+        </div>
+      </div>
+      <div class="hero-bullet">
+        <div class="bullet-icon">✅</div>
+        <div class="bullet-text">
+          <strong data-uk="Гарантія якості" data-en="Quality Guarantee">Гарантія якості</strong>
+          <span data-uk="Повернемось безкоштовно" data-en="Free return visit">Повернемось безкоштовно</span>
+        </div>
+      </div>
+      <div class="hero-bullet">
+        <div class="bullet-icon">📅</div>
+        <div class="bullet-text">
+          <strong data-uk="Зручний графік" data-en="Flexible Schedule">Зручний графік</strong>
+          <span data-uk="Працюємо 7 днів на тиждень" data-en="7 days a week">Працюємо 7 днів на тиждень</span>
+        </div>
+      </div>
+      <div class="hero-bullet">
+        <div class="bullet-icon">💎</div>
+        <div class="bullet-text">
+          <strong data-uk="Досвідчена команда" data-en="Expert Team">Досвідчена команда</strong>
+          <span data-uk="Понад 500 виконаних замовлень" data-en="500+ completed orders">Понад 500 виконаних замовлень</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap reveal">
+      <img src="images/about.jpg" alt="Команда Чисто завжди" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+      <div class="about-img-placeholder" style="display:none">🧹</div>
+    </div>
+    <div class="about-content reveal">
+      <div class="section-tag" data-uk="Про компанію" data-en="About Us">Про компанію</div>
+      <h2 class="section-title" data-uk="Чистота — наша професія, ваш <em>комфорт</em> — наш пріоритет" data-en="Cleanliness is our profession, your <em>comfort</em> — our priority">Чистота — наша професія, ваш <em>комфорт</em> — наш пріоритет</h2>
+      <p class="about-text" data-uk="Компанія «Чисто завжди» надає професійні клінінгові послуги у Тернополі з 2020 року. Ми використовуємо лише сертифіковані еко-засоби, які безпечні для вашої родини та домашніх улюбленців. Наша команда — це навчені фахівці, які знають кожен куточок та кожну пляму. Ми пишаємось тим, що понад 80% наших клієнтів повертаються знову." data-en="«Chysto Zavzhdy» has been providing professional cleaning services in Ternopil since 2020. We use only certified eco-friendly products that are safe for your family and pets. Our team are trained specialists who know every corner and every stain. We are proud that over 80% of our clients return again.">Компанія «Чисто завжди» надає професійні клінінгові послуги у Тернополі з 2020 року. Ми використовуємо лише сертифіковані еко-засоби, які безпечні для вашої родини та домашніх улюбленців. Наша команда — це навчені фахівці, які знають кожен куточок та кожну пляму. Ми пишаємось тим, що понад 80% наших клієнтів повертаються знову.</p>
+      <ul class="about-perks">
+        <li class="about-perk">
+          <div class="perk-check">✓</div>
+          <span data-uk="Понад 500 виконаних замовлень" data-en="Over 500 completed orders">Понад 500 виконаних замовлень</span>
+        </li>
+        <li class="about-perk">
+          <div class="perk-check">✓</div>
+          <span data-uk="Еко-сертифіковані засоби" data-en="Eco-certified products">Еко-сертифіковані засоби</span>
+        </li>
+        <li class="about-perk">
+          <div class="perk-check">✓</div>
+          <span data-uk="Безкоштовне повернення при незадоволенні" data-en="Free return if unsatisfied">Безкоштовне повернення при незадоволенні</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services">
+  <div class="services-header reveal">
+    <div class="section-tag" data-uk="Наші послуги" data-en="Our Services">Наші послуги</div>
+    <h2 class="section-title" data-uk="Все, що потрібно для <em>ідеальної чистоти</em>" data-en="Everything you need for <em>perfect clean</em>">Все, що потрібно для <em>ідеальної чистоти</em></h2>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card reveal" onclick="openServicePopup('Генеральне прибирання', 'від 800 грн')">
+      <div class="book-badge" data-uk="📋 Записатись" data-en="📋 Book">📋 Записатись</div>
+      <div class="service-img-wrap">
+        <img src="service1.jpg" alt="Генеральне прибирання" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="svc-placeholder" style="background:linear-gradient(135deg,#e0f4fd,#b8e4f9);display:none">🏠</div>
+      </div>
+      <div class="service-body">
+        <div class="svc-num">01</div>
+        <div class="svc-name" data-uk="Генеральне прибирання" data-en="Deep Cleaning">Генеральне прибирання</div>
+        <div class="svc-desc" data-uk="Ретельне прибирання кожного куточка квартири чи будинку" data-en="Thorough cleaning of every corner of your apartment or house">Ретельне прибирання кожного куточка квартири чи будинку</div>
+        <div class="svc-footer">
+          <div class="svc-price" data-uk="від 800 грн" data-en="from 800 UAH">від 800 грн</div>
+          <div class="svc-arrow">→</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card reveal" onclick="openServicePopup('Регулярне прибирання', 'від 400 грн')">
+      <div class="book-badge" data-uk="📋 Записатись" data-en="📋 Book">📋 Записатись</div>
+      <div class="service-img-wrap">
+        <img src="service2.jpg" alt="Регулярне прибирання" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="svc-placeholder" style="background:linear-gradient(135deg,#e0f4fd,#b8e4f9);display:none">🔄</div>
+      </div>
+      <div class="service-body">
+        <div class="svc-num">02</div>
+        <div class="svc-name" data-uk="Регулярне прибирання" data-en="Regular Cleaning">Регулярне прибирання</div>
+        <div class="svc-desc" data-uk="Щотижневий або щомісячний догляд за вашим простором" data-en="Weekly or monthly care for your space">Щотижневий або щомісячний догляд за вашим простором</div>
+        <div class="svc-footer">
+          <div class="svc-price" data-uk="від 400 грн" data-en="from 400 UAH">від 400 грн</div>
+          <div class="svc-arrow">→</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card reveal" onclick="openServicePopup('Прибирання після ремонту', 'від 1200 грн')">
+      <div class="book-badge" data-uk="📋 Записатись" data-en="📋 Book">📋 Записатись</div>
+      <div class="service-img-wrap">
+        <img src="service3.jpg" alt="Прибирання після ремонту" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="svc-placeholder" style="background:linear-gradient(135deg,#e0f4fd,#b8e4f9);display:none">🏗️</div>
+      </div>
+      <div class="service-body">
+        <div class="svc-num">03</div>
+        <div class="svc-name" data-uk="Прибирання після ремонту" data-en="Post-Renovation Cleaning">Прибирання після ремонту</div>
+        <div class="svc-desc" data-uk="Видалення будівельного пилу, шпаклівки та клею після ремонтних робіт" data-en="Removal of construction dust, putty and glue after renovation">Видалення будівельного пилу, шпаклівки та клею після ремонтних робіт</div>
+        <div class="svc-footer">
+          <div class="svc-price" data-uk="від 1200 грн" data-en="from 1200 UAH">від 1200 грн</div>
+          <div class="svc-arrow">→</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card reveal" onclick="openServicePopup('Офісний клінінг', 'від 600 грн')">
+      <div class="book-badge" data-uk="📋 Записатись" data-en="📋 Book">📋 Записатись</div>
+      <div class="service-img-wrap">
+        <img src="service4.jpg" alt="Офісний клінінг" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="svc-placeholder" style="background:linear-gradient(135deg,#e0f4fd,#b8e4f9);display:none">💼</div>
+      </div>
+      <div class="service-body">
+        <div class="svc-num">04</div>
+        <div class="svc-name" data-uk="Офісний клінінг" data-en="Office Cleaning">Офісний клінінг</div>
+        <div class="svc-desc" data-uk="Підтримання чистоти у вашому офісі щодня або кілька разів на тиждень" data-en="Maintaining cleanliness in your office daily or several times a week">Підтримання чистоти у вашому офісі щодня або кілька разів на тиждень</div>
+        <div class="svc-footer">
+          <div class="svc-price" data-uk="від 600 грн" data-en="from 600 UAH">від 600 грн</div>
+          <div class="svc-arrow">→</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card reveal" onclick="openServicePopup('Миття вікон', 'від 200 грн')">
+      <div class="book-badge" data-uk="📋 Записатись" data-en="📋 Book">📋 Записатись</div>
+      <div class="service-img-wrap">
+        <img src="service5.jpg" alt="Миття вікон" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="svc-placeholder" style="background:linear-gradient(135deg,#e0f4fd,#b8e4f9);display:none">🪟</div>
+      </div>
+      <div class="service-body">
+        <div class="svc-num">05</div>
+        <div class="svc-name" data-uk="Миття вікон" data-en="Window Washing">Миття вікон</div>
+        <div class="svc-desc" data-uk="Кристально чисті вікна без розводів зсередини та зовні" data-en="Crystal clean windows without streaks inside and out">Кристально чисті вікна без розводів зсередини та зовні</div>
+        <div class="svc-footer">
+          <div class="svc-price" data-uk="від 200 грн" data-en="from 200 UAH">від 200 грн</div>
+          <div class="svc-arrow">→</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card hit reveal" onclick="openServicePopup('Хіт-пакет: Комплексне прибирання', 'від 1500 грн')">
+      <div class="book-badge" data-uk="📋 Записатись" data-en="📋 Book">📋 Записатись</div>
+      <div class="service-img-wrap">
+        <img src="service6.jpg" alt="Хіт-пакет" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="svc-placeholder" style="background:rgba(255,255,255,.12);display:none">⭐</div>
+      </div>
+      <div class="service-body">
+        <div class="svc-num">06</div>
+        <div class="hit-badge" data-uk="⭐ Найпопулярніше" data-en="⭐ Most Popular">⭐ Найпопулярніше</div>
+        <div class="svc-name" data-uk="Хіт-пакет: Комплексне прибирання" data-en="Hit Package: Full Cleaning">Хіт-пакет: Комплексне прибирання</div>
+        <div class="svc-desc" data-uk="Генеральне + вікна + балкон + холодильник — все в одному візиті" data-en="Deep clean + windows + balcony + fridge — all in one visit">Генеральне + вікна + балкон + холодильник — все в одному візиті</div>
+        <div class="svc-footer">
+          <div class="svc-price" data-uk="від 1500 грн" data-en="from 1500 UAH">від 1500 грн</div>
+          <div class="svc-arrow">→</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ REVIEWS ═══ -->
+<section id="reviews">
+  <div class="reviews-header reveal">
+    <div class="section-tag" data-uk="Відгуки клієнтів" data-en="Client Reviews">Відгуки клієнтів</div>
+    <h2 class="section-title" data-uk="Що кажуть наші <em>клієнти</em>" data-en="What our <em>clients</em> say">Що кажуть наші <em>клієнти</em></h2>
+  </div>
+  <div class="reviews-track">
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-uk="«Замовляла генеральне прибирання перед переїздом. Команда впоралась за 3 години — квартира засяяла! Особливо вразило, як відмили плитку у ванній. Рекомендую всім!»" data-en="«I ordered a deep clean before moving. The team finished in 3 hours — the apartment sparkled! I was especially impressed by how they cleaned the bathroom tiles. I recommend to everyone!»">«Замовляла генеральне прибирання перед переїздом. Команда впоралась за 3 години — квартира засяяла! Особливо вразило, як відмили плитку у ванній. Рекомендую всім!»</p>
+      <div class="review-footer">
+        <div class="review-avatar">О</div>
+        <div>
+          <div class="review-name">Оксана Петренко</div>
+          <div class="review-date">15.03.2024</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-uk="«Регулярно замовляємо прибирання офісу. Вже пів року співпрацюємо — жодного разу не підвели. Приходять вчасно, роблять якісно, завжди ввічливі.»" data-en="«We regularly order office cleaning. We have been working together for half a year — never let us down. They come on time, do quality work, always polite.»">«Регулярно замовляємо прибирання офісу. Вже пів року співпрацюємо — жодного разу не підвели. Приходять вчасно, роблять якісно, завжди ввічливі.»</p>
+      <div class="review-footer">
+        <div class="review-avatar">А</div>
+        <div>
+          <div class="review-name">Андрій Ковальчук</div>
+          <div class="review-date">08.02.2024</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-uk="«Після ремонту звернулась у «Чисто завжди». Не уявляла, як можна так ретельно прибрати! Весь будівельний пил і сміття зникли за один день.»" data-en="«After renovation I turned to «Chysto Zavzhdy». I could not imagine such a thorough clean! All construction dust and debris disappeared in one day.»">«Після ремонту звернулась у «Чисто завжди». Не уявляла, як можна так ретельно прибрати! Весь будівельний пил і сміття зникли за один день.»</p>
+      <div class="review-footer">
+        <div class="review-avatar">М</div>
+        <div>
+          <div class="review-name">Марина Савченко</div>
+          <div class="review-date">22.01.2024</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-uk="«Замовила пакет «Хіт» — залишилась у захваті. Вікна блищать, холодильник чистий, балкон як новий. Ціна повністю відповідає якості!»" data-en="«I ordered the Hit package — I was delighted. Windows sparkle, fridge is clean, balcony is like new. The price fully matches the quality!»">«Замовила пакет «Хіт» — залишилась у захваті. Вікна блищать, холодильник чистий, балкон як новий. Ціна повністю відповідає якості!»</p>
+      <div class="review-footer">
+        <div class="review-avatar">І</div>
+        <div>
+          <div class="review-name">Ірина Мельник</div>
+          <div class="review-date">05.04.2024</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section id="faq">
+  <div class="faq-header reveal">
+    <div class="section-tag" data-uk="Питання та відповіді" data-en="FAQ">Питання та відповіді</div>
+    <h2 class="section-title" data-uk="Відповіді на <em>часті питання</em>" data-en="Answers to <em>common questions</em>">Відповіді на <em>часті питання</em></h2>
+  </div>
+  <div class="faq-list">
+
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span data-uk="Скільки часу займає прибирання квартири?" data-en="How long does apartment cleaning take?">Скільки часу займає прибирання квартири?</span>
+        <div class="faq-toggle">+</div>
+      </button>
+      <div class="faq-a">
+        <p data-uk="Час залежить від площі та типу прибирання. Стандартне прибирання 2-кімнатної квартири займає 2–3 години, генеральне — 4–6 годин. Точний час узгоджується при замовленні." data-en="Time depends on the area and type of cleaning. Standard cleaning of a 2-room apartment takes 2–3 hours, deep cleaning — 4–6 hours. The exact time is agreed upon when ordering.">Час залежить від площі та типу прибирання. Стандартне прибирання 2-кімнатної квартири займає 2–3 години, генеральне — 4–6 годин. Точний час узгоджується при замовленні.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span data-uk="Чи безпечні ваші засоби для дітей і домашніх тварин?" data-en="Are your products safe for children and pets?">Чи безпечні ваші засоби для дітей і домашніх тварин?</span>
+        <div class="faq-toggle">+</div>
+      </button>
+      <div class="faq-a">
+        <p data-uk="Так! Ми використовуємо виключно еко-сертифіковані засоби без хлору та агресивної хімії. Вони ефективні проти бруду, але абсолютно безпечні для вашої родини та улюбленців." data-en="Yes! We use only eco-certified products without chlorine or aggressive chemicals. They are effective against dirt but completely safe for your family and pets.">Так! Ми використовуємо виключно еко-сертифіковані засоби без хлору та агресивної хімії. Вони ефективні проти бруду, але абсолютно безпечні для вашої родини та улюбленців.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span data-uk="Що робити, якщо я незадоволений результатом?" data-en="What if I'm not satisfied with the result?">Що робити, якщо я незадоволений результатом?</span>
+        <div class="faq-toggle">+</div>
+      </button>
+      <div class="faq-a">
+        <p data-uk="Ваш комфорт — наш пріоритет. Якщо ви незадоволені якістю прибирання, ми повернемось і виправимо все безкоштовно протягом 24 годин. Без зайвих питань." data-en="Your comfort is our priority. If you are not satisfied with the quality of the cleaning, we will return and fix everything for free within 24 hours. No questions asked.">Ваш комфорт — наш пріоритет. Якщо ви незадоволені якістю прибирання, ми повернемось і виправимо все безкоштовно протягом 24 годин. Без зайвих питань.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span data-uk="Як замовити прибирання і скільки часу чекати?" data-en="How to order cleaning and how long to wait?">Як замовити прибирання і скільки часу чекати?</span>
+        <div class="faq-toggle">+</div>
+      </button>
+      <div class="faq-a">
+        <p data-uk="Просто зателефонуйте або залиште заявку на сайті. Ми узгодимо зручний час і вже наступного дня зможемо виїхати до вас. У більшості випадків записуємо на той же або наступний день." data-en="Simply call or leave a request on the website. We will agree on a convenient time and can come to you the next day. In most cases we schedule for the same or next day.">Просто зателефонуйте або залиште заявку на сайті. Ми узгодимо зручний час і вже наступного дня зможемо виїхати до вас. У більшості випадків записуємо на той же або наступний день.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="faq-cta reveal">
+    <p data-uk="Залишились питання? Ми завжди готові допомогти!" data-en="Still have questions? We're always ready to help!">Залишились питання? Ми завжди готові допомогти!</p>
+    <button class="btn-primary" onclick="openPopup()" data-uk="Записатись на консультацію" data-en="Book a Consultation">Записатись на консультацію</button>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Чисто <span>завжди.</span></div>
+      <p class="footer-slogan" data-uk="Ваш простір — наша турбота. Довіряйте прибирання професіоналам." data-en="Your space — our care. Trust cleaning to professionals.">Ваш простір — наша турбота. Довіряйте прибирання професіоналам.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/vmendaliuk" target="_blank" rel="noopener" class="social-btn" title="Instagram">📸</a>
+        <a href="https://t.me/vmendaliuk" target="_blank" rel="noopener" class="social-btn" title="Telegram">✈️</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-title" data-uk="Навігація" data-en="Navigation">Навігація</div>
+      <ul class="footer-nav">
+        <li><a href="#about" data-uk="Про нас" data-en="About Us">Про нас</a></li>
+        <li><a href="#services" data-uk="Послуги" data-en="Services">Послуги</a></li>
+        <li><a href="#reviews" data-uk="Відгуки" data-en="Reviews">Відгуки</a></li>
+        <li><a href="#faq" data-uk="FAQ" data-en="FAQ">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-title" data-uk="Контакти" data-en="Contacts">Контакти</div>
+      <div class="footer-contacts">
+        <a href="tel:+380335184537" class="footer-contact">
+          <span class="contact-icon">📞</span>
+          <span>+380 335 184 537</span>
+        </a>
+        <a href="https://instagram.com/vmendaliuk" target="_blank" rel="noopener" class="footer-contact">
+          <span class="contact-icon">📸</span>
+          <span>@vmendaliuk</span>
+        </a>
+        <a href="https://t.me/vmendaliuk" target="_blank" rel="noopener" class="footer-contact">
+          <span class="contact-icon">✈️</span>
+          <span>@vmendaliuk</span>
+        </a>
+        <div class="footer-contact">
+          <span class="contact-icon">📍</span>
+          <span data-uk="м. Тернопіль, вул. Шкільна, 5" data-en="Ternopil, Shkilna St., 5">м. Тернопіль, вул. Шкільна, 5</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> — Чисто завжди. | <span data-uk="Всі права захищені" data-en="All rights reserved">Всі права захищені</span></span>
+    <span data-uk="Тернопіль, Україна" data-en="Ternopil, Ukraine">Тернопіль, Україна</span>
+  </div>
+</footer>
+
+<!-- ═══ POPUP ═══ -->
+<div id="popup-overlay" onclick="handleOverlayClick(event)">
+  <div id="popup">
+    <button id="popup-close" onclick="closePopup()">✕</button>
+    <h3 data-uk="Записатись на прибирання" data-en="Book a Cleaning">Записатись на прибирання</h3>
+    <p id="popup-subtitle" data-uk="Заповніть форму — ми зв'яжемось найближчим часом" data-en="Fill the form — we'll contact you shortly">Заповніть форму — ми зв'яжемось найближчим часом</p>
+    <div id="popup-service-badge"></div>
+    <form class="popup-form" onsubmit="submitForm(event)">
+      <input type="hidden" id="f-service" name="service">
+      <input type="text" id="f-name" name="name" placeholder="Ваше ім'я" required minlength="2">
+      <input type="tel" id="f-phone" name="phone" placeholder="+380 XX XXX XX XX" required>
+      <input type="datetime-local" id="f-date" name="date">
+      <textarea id="f-comment" name="comment" placeholder="Коментар (необов'язково)" rows="3"></textarea>
+      <button type="submit" class="btn-submit" data-uk="Надіслати заявку" data-en="Send Request">Надіслати заявку</button>
+    </form>
+  </div>
+</div>
+
+<script>
+/* ═══ CURSOR ═══ */
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top  = my + 'px';
+});
+
+(function animRing() {
+  rx += (mx - rx) * .12;
+  ry += (my - ry) * .12;
+  cursorRing.style.left = rx + 'px';
+  cursorRing.style.top  = ry + 'px';
+  requestAnimationFrame(animRing);
+})();
+
+document.querySelectorAll('a, button, .service-card, .hero-bullet, .review-card').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+});
+
+/* ═══ PARTICLES ═══ */
+const pc = document.getElementById('particles-container');
+for (let i = 0; i < 18; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  const size = 40 + Math.random() * 80;
+  p.style.cssText = `
+    width:${size}px; height:${size}px;
+    left:${Math.random() * 100}%;
+    animation-duration:${10 + Math.random() * 14}s;
+    animation-delay:${Math.random() * -24}s;
+  `;
+  pc.appendChild(p);
+}
+
+/* ═══ NAVBAR ═══ */
+const navbar = document.getElementById('navbar');
+function handleScroll() {
+  if (window.scrollY < 60) {
+    navbar.classList.add('at-top');
+  } else {
+    navbar.classList.remove('at-top');
+  }
+  /* Hero parallax */
+  const hero = document.getElementById('hero');
+  const heroBg = document.getElementById('hero-bg');
+  if (hero && heroBg) {
+    const rect = hero.getBoundingClientRect();
+    if (rect.bottom > 0) {
+      heroBg.style.transform = `translateY(${window.scrollY * .22}px)`;
+    }
+  }
+}
+window.addEventListener('scroll', handleScroll, { passive: true });
+handleScroll();
+
+/* ═══ HERO CURSOR PARALLAX ═══ */
+document.getElementById('hero').addEventListener('mousemove', e => {
+  const heroBg = document.getElementById('hero-bg');
+  const cx = (e.clientX / window.innerWidth) - .5;
+  const cy = (e.clientY / window.innerHeight) - .5;
+  heroBg.style.transform = `translateY(${window.scrollY * .22}px) translate(${cx * -16}px, ${cy * -16}px)`;
+});
+
+/* ═══ BURGER ═══ */
+function toggleMenu() {
+  const burger = document.getElementById('burger');
+  const menu   = document.getElementById('mobile-menu');
+  burger.classList.toggle('open');
+  menu.classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('burger').classList.remove('open');
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+/* ═══ SCROLL REVEAL ═══ */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: .1 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ═══ FAQ ACCORDION ═══ */
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ═══ POPUP ═══ */
+function openPopup() {
+  document.getElementById('popup-service-badge').className = '';
+  document.getElementById('f-service').value = '';
+  document.getElementById('popup-overlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function openServicePopup(name, price) {
+  const badge = document.getElementById('popup-service-badge');
+  badge.textContent = '🧹 ' + name + ' — ' + price;
+  badge.className = 'show';
+  document.getElementById('f-service').value = name;
+  document.getElementById('popup-overlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePopup() {
+  document.getElementById('popup-overlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('popup-overlay')) closePopup();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closePopup();
+});
+
+function submitForm(e) {
+  e.preventDefault();
+  const service = document.getElementById('f-service').value;
+  const name    = document.getElementById('f-name').value;
+  const phone   = document.getElementById('f-phone').value;
+  const date    = document.getElementById('f-date').value;
+  const comment = document.getElementById('f-comment').value;
+
+  // ─── Telegram Webhook (розкоментуй і вкажи токен та chat_id) ───
+  // fetch('https://api.telegram.org/bot{TOKEN}/sendMessage', {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify({
+  //     chat_id: '{CHAT_ID}',
+  //     text: `📋 Нова заявка!\n🧹 ${service || 'Не вказано'}\n👤 ${name}\n📞 ${phone}\n📅 ${date || 'Не вказано'}\n💬 ${comment || 'Без коментаря'}`
+  //   })
+  // });
+
+  alert('Дякуємо, ' + name + '! 😊\nМи зв\'яжемось з вами найближчим часом.');
+  e.target.reset();
+  closePopup();
+}
+
+/* ═══ LANGUAGE SWITCHER ═══ */
+let currentLang = 'uk';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang === 'uk' ? 'uk' : 'en';
+
+  document.querySelectorAll('[data-uk]').forEach(el => {
+    const val = el.getAttribute('data-' + lang);
+    if (val !== null) el.innerHTML = val;
+  });
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang || (lang === 'uk' && btn.textContent === 'UA'));
+  });
+
+  /* Update placeholders */
+  const nameInput = document.getElementById('f-name');
+  const commentInput = document.getElementById('f-comment');
+  if (nameInput) nameInput.placeholder = lang === 'uk' ? 'Ваше ім\'я' : 'Your name';
+  if (commentInput) commentInput.placeholder = lang === 'uk' ? 'Коментар (необов\'язково)' : 'Comment (optional)';
+
+  /* Update submit button */
+  const submitBtn = document.querySelector('.btn-submit');
+  if (submitBtn) submitBtn.textContent = lang === 'uk' ? 'Надіслати заявку' : 'Send Request';
+}
+
+/* ═══ FOOTER YEAR ═══ */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
