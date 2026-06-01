@@ -1020,9 +1020,25 @@ footer {
 
 .popup-form { display: flex; flex-direction: column; gap: 14px; }
 .popup-datetime {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
+}
+.popup-datetime input {
+  position: relative;
+}
+/* Плейсхолдер-лейбл над полем */
+.popup-dt-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.popup-dt-label {
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  letter-spacing: .04em;
+  padding-left: 4px;
 }
 .popup-form input,
 .popup-form textarea {
@@ -1121,7 +1137,7 @@ footer {
     gap: 10px;
     align-items: center;
   }
-  .hero-bullet:last-child { grid-column: unset; }
+  .hero-bullet:last-child { grid-column: unset; display: none; }
   .bullet-icon { font-size: 1.1rem; flex-shrink: 0; }
   .bullet-text {
     display: flex;
@@ -1581,8 +1597,14 @@ footer {
       <input type="text" id="f-name" name="name" placeholder="Ваше ім'я" required minlength="2">
       <input type="tel" id="f-phone" name="phone" placeholder="+380 XX XXX XX XX" required>
       <div class="popup-datetime">
-        <input type="date" id="f-date" name="date">
-        <input type="time" id="f-time" name="time">
+        <div class="popup-dt-wrap">
+          <span class="popup-dt-label">📅 Бажана дата</span>
+          <input type="date" id="f-date" name="date">
+        </div>
+        <div class="popup-dt-wrap">
+          <span class="popup-dt-label">🕐 Бажаний час</span>
+          <input type="time" id="f-time" name="time">
+        </div>
       </div>
       <textarea id="f-comment" name="comment" placeholder="Коментар (необов'язково)" rows="3"></textarea>
       <button type="submit" class="btn-submit" data-uk="Надіслати заявку" data-en="Send Request">Надіслати заявку</button>
