@@ -1039,10 +1039,11 @@ footer {
 @media (max-width: 960px) {
   #hero {
     grid-template-columns: 1fr;
-    padding-top: 90px;
+    padding-top: 80px;
+    min-height: 100dvh;
   }
-  .hero-left { padding: 30px 0 20px; order: 1; }
-  .hero-right { order: -1; padding-top: 30px; }
+  .hero-left { padding: 20px 0 32px; order: 1; }
+  .hero-right { order: -1; padding-top: 90px; padding-bottom: 8px; }
   .hero-bullets { grid-template-columns: 1fr 1fr; }
   .hero-bullet:last-child { grid-column: unset; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1057,16 +1058,81 @@ footer {
   .about-img-wrap { min-height: 260px !important; }
   .about-img-placeholder { min-height: 260px !important; }
   .services-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 480px) {
-  .hero-btns { flex-direction: column; }
+
+  /* Hero mobile */
+  #hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 5% 36px;
+    min-height: 100dvh;
+  }
+  .hero-right {
+    order: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 80px;
+  }
+  .hero-left {
+    order: 1;
+    padding: 0;
+    margin-top: 0;
+  }
+  .hero-left h1 { font-size: 1.75rem; margin-bottom: 12px; }
+  .hero-utp { font-size: .9rem; margin-bottom: 20px; }
+  .hero-badge { margin-bottom: 12px; }
+
+  /* Bullets — 2 cols tight */
+  .hero-bullets {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .hero-bullet {
+    padding: 10px 12px;
+    border-radius: 12px;
+    gap: 8px;
+  }
+  .hero-bullet:last-child { grid-column: unset; }
+  .bullet-icon { font-size: 1.1rem; }
+  .bullet-text strong { font-size: .8rem; }
+  .bullet-text span { font-size: .72rem; }
+
+  /* Кнопки — в ряд, однакова ширина */
+  .hero-btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
   .btn-primary, .btn-outline {
     width: 100%;
     text-align: center;
+    padding: 14px 12px;
+    font-size: .88rem;
+    white-space: normal;
+    line-height: 1.3;
   }
-  .hero-bullets { grid-template-columns: 1fr 1fr; gap: 10px; }
+}
+@media (max-width: 480px) {
+  .hero-btns { grid-template-columns: 1fr; }
+  .btn-primary, .btn-outline { font-size: .9rem; }
   .footer-grid { grid-template-columns: 1fr; }
-  #popup { padding: 28px 20px; }
+  #popup { padding: 24px 16px; }
+  /* Popup datetime */
+  .popup-form input[type="datetime-local"] {
+    font-size: .8rem;
+    padding: 12px 10px;
+  }
+}
+
+/* Popup datetime overflow fix — всі екрани */
+.popup-form input[type="datetime-local"] {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  font-size: .85rem;
+  overflow: hidden;
 }
 </style>
 </head>
