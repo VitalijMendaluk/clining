@@ -866,13 +866,18 @@ footer {
   padding: 80px 5% 0;
 }
 .footer-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 60px;
   border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.footer-top-row {
+  margin-bottom: 36px;
+}
+.footer-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
   align-items: start;
 }
 /* LEFT COLUMN */
@@ -897,8 +902,8 @@ footer {
   font-size: .9rem;
   line-height: 1.65;
   color: rgba(255,255,255,.5);
-  margin-bottom: 36px;
-  max-width: 420px;
+  margin-bottom: 0;
+  max-width: 520px;
 }
 .footer-contacts { display: flex; flex-direction: column; gap: 12px; }
 .footer-contact {
@@ -1181,7 +1186,7 @@ footer {
   .hero-bullets { grid-template-columns: 1fr 1fr; }
   .hero-bullet:last-child { grid-column: unset; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-inner { gap: 40px; }
+  .footer-cols { gap: 40px; }
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
@@ -1256,7 +1261,7 @@ footer {
 @media (max-width: 480px) {
   .hero-btns { grid-template-columns: 1fr; }
   .btn-primary, .btn-outline { font-size: .9rem; }
-  .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+  .footer-cols { grid-template-columns: 1fr; gap: 28px; }
   .footer-form-card { padding: 24px 18px; }
   #popup { padding: 24px 16px; }
   /* Popup datetime */
@@ -1684,11 +1689,17 @@ footer {
 <footer>
   <div class="footer-inner">
 
-    <!-- LEFT: heading + contact cards -->
-    <div class="footer-left">
+    <!-- TOP ROW: heading + desc -->
+    <div class="footer-top-row">
       <p class="footer-tag" data-uk="КОНТАКТИ" data-en="CONTACTS">CONTACTS</p>
       <h2 class="footer-heading" data-uk="Зв'яжіться з нами" data-en="Get in touch">Get in touch</h2>
       <p class="footer-desc" data-uk="Напишіть нам у Telegram або WhatsApp — відповідаємо зазвичай протягом кількох годин. Готові обговорити ваше замовлення безкоштовно." data-en="Message us on Telegram or WhatsApp — we usually reply within a few hours. Happy to discuss your booking for free.">Message us on Telegram or WhatsApp — we usually reply within a few hours. Happy to discuss your booking for free.</p>
+    </div>
+
+    <!-- TWO COLUMNS: contacts | form -->
+    <div class="footer-cols">
+    <!-- LEFT: contact cards -->
+    <div class="footer-left">
 
       <div class="footer-contacts">
 
@@ -1740,6 +1751,7 @@ footer {
 
       </div>
     </div>
+    </div><!-- /footer-left -->
 
     <!-- RIGHT: form card -->
     <div class="footer-right">
@@ -1756,7 +1768,8 @@ footer {
           <button class="ff-btn" type="submit" data-uk="Надіслати →" data-en="Send →">Send →</button>
         </form>
       </div>
-    </div>
+    </div><!-- /footer-right -->
+    </div><!-- /footer-cols -->
 
   </div>
 
