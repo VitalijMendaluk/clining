@@ -921,17 +921,46 @@ footer {
 .footer-contacts { display: flex; flex-direction: column; gap: 10px; }
 .footer-contact {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: .88rem;
-  transition: color var(--tr);
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  text-decoration: none;
+  color: rgba(255,255,255,.85);
+  transition: background var(--tr), border-color var(--tr), transform .2s;
 }
-.footer-contact:hover { color: var(--rose); }
+.footer-contact:hover {
+  background: rgba(255,255,255,.11);
+  border-color: rgba(255,255,255,.18);
+  transform: translateX(4px);
+  color: #fff;
+}
 .contact-icon {
-  width: 26px;
-  text-align: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  margin-top: 1px;
+  font-size: 1.15rem;
+}
+.contact-icon svg { display: block; }
+.contact-text { display: flex; flex-direction: column; gap: 2px; }
+.contact-label {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+}
+.contact-value {
+  font-size: .88rem;
+  font-weight: 500;
+  color: #fff;
 }
 .footer-bottom {
   max-width: 1200px;
@@ -1623,32 +1652,53 @@ footer {
     <div>
       <div class="footer-title" data-uk="Контакти" data-en="Contacts">Contacts</div>
       <div class="footer-contacts">
+
         <a href="tel:+447949056654" class="footer-contact">
           <span class="contact-icon">📞</span>
-          <span>+44 794 905 6654</span>
+          <span class="contact-text">
+            <span class="contact-label" data-uk="Телефон / WhatsApp" data-en="Phone / WhatsApp">Phone / WhatsApp</span>
+            <span class="contact-value">+44 794 905 6654</span>
+          </span>
         </a>
+
         <a href="https://t.me/londonhomecrystalservice" target="_blank" rel="noopener" class="footer-contact">
           <span class="contact-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-2.02 9.532c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.883.689z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-2.02 9.532c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.883.689z"/></svg>
           </span>
-          <span>@londonhomecrystalservice</span>
+          <span class="contact-text">
+            <span class="contact-label">Telegram</span>
+            <span class="contact-value">@londonhomecrystalservice</span>
+          </span>
         </a>
+
         <a href="https://api.whatsapp.com/send/?phone=%2B447949056654&text&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="footer-contact">
           <span class="contact-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.52 14.27c-.23.63-1.35 1.22-1.86 1.26-.51.04-1 .19-3.38-.71-2.84-1.08-4.66-3.97-4.8-4.15-.14-.18-1.15-1.53-1.15-2.93s.73-2.07.99-2.35c.26-.28.57-.35.76-.35.19 0 .38.01.54.01.18.01.41-.07.64.49.23.57.79 1.93.86 2.07.07.14.12.3.02.48-.1.18-.15.3-.3.46-.15.16-.31.36-.44.48-.15.14-.3.3-.13.58.17.28.75 1.23 1.61 2 1.1.99 2.03 1.3 2.32 1.44.29.14.46.12.63-.07.17-.19.73-.85.92-1.14.19-.29.38-.24.64-.14.26.1 1.63.77 1.91.91.28.14.46.21.53.33.07.12.07.68-.16 1.31z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.52 14.27c-.23.63-1.35 1.22-1.86 1.26-.51.04-1 .19-3.38-.71-2.84-1.08-4.66-3.97-4.8-4.15-.14-.18-1.15-1.53-1.15-2.93s.73-2.07.99-2.35c.26-.28.57-.35.76-.35.19 0 .38.01.54.01.18.01.41-.07.64.49.23.57.79 1.93.86 2.07.07.14.12.3.02.48-.1.18-.15.3-.3.46-.15.16-.31.36-.44.48-.15.14-.3.3-.13.58.17.28.75 1.23 1.61 2 1.1.99 2.03 1.3 2.32 1.44.29.14.46.12.63-.07.17-.19.73-.85.92-1.14.19-.29.38-.24.64-.14.26.1 1.63.77 1.91.91.28.14.46.21.53.33.07.12.07.68-.16 1.31z"/></svg>
           </span>
-          <span>WhatsApp</span>
+          <span class="contact-text">
+            <span class="contact-label">WhatsApp</span>
+            <span class="contact-value">+44 794 905 6654</span>
+          </span>
         </a>
+
         <a href="https://www.facebook.com/CrysralCWC" target="_blank" rel="noopener" class="footer-contact">
           <span class="contact-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
           </span>
-          <span>Facebook</span>
+          <span class="contact-text">
+            <span class="contact-label">Facebook</span>
+            <span class="contact-value">London Home Crystal Service</span>
+          </span>
         </a>
+
         <div class="footer-contact">
           <span class="contact-icon">📍</span>
-          <span>KT5 9LW, London, UK</span>
+          <span class="contact-text">
+            <span class="contact-label" data-uk="Адреса" data-en="Address">Address</span>
+            <span class="contact-value">KT5 9LW, London, UK</span>
+          </span>
         </div>
+
       </div>
     </div>
   </div>
