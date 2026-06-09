@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Чисто завжди — професійний клінінг у Тернополі. Генеральне прибирання, регулярний догляд, миття вікон. Еко-засоби, гарантія якості. Тел: +380 335 184 537">
-<meta property="og:title" content="Чисто завжди — Клінінг у Тернополі">
-<meta property="og:description" content="Бездоганна чистота без зусиль з вашого боку. Еко-засоби, досвідчена команда, гарантія результату.">
+<meta name="description" content="London Home Crystal Service — professional cleaning in London. Deep cleaning, end of tenancy, carpet & window cleaning. Eco-friendly products, quality guarantee.">
+<meta property="og:title" content="London Home Crystal Service — Professional Cleaning">
+<meta property="og:description" content="Spotless clean without any effort on your part. Eco products, expert team, satisfaction guaranteed.">
 <meta property="og:type" content="website">
-<title>Чисто завжди — Клінінг Тернопіль</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧹</text></svg>">
+<title>London Home Crystal Service — Cleaning London</title>
+<link rel="icon" href="favicon.png">
 <style>
 /* ═══ ROOT VARIABLES ═══ */
 :root {
@@ -120,18 +120,22 @@ nav:not(.at-top) {
 nav.at-top .nav-logo,
 nav.at-top .nav-links a { color: #fff; }
 nav.at-top .nav-links a:hover { color: var(--pink-light); }
-nav:not(.at-top) .nav-logo { color: var(--text); }
 nav:not(.at-top) .nav-links a { color: var(--text-soft); }
 nav:not(.at-top) .nav-links a:hover { color: var(--rose); }
 
 .nav-logo {
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: -.02em;
+  display: flex;
+  align-items: center;
   white-space: nowrap;
-  transition: color var(--tr);
 }
-.nav-logo span { color: var(--rose); }
+.nav-logo-img {
+  height: 42px;
+  width: auto;
+  display: block;
+  transition: filter var(--tr);
+}
+nav.at-top .nav-logo-img { filter: brightness(0) invert(1); }
+nav:not(.at-top) .nav-logo-img { filter: none; }
 
 .nav-links {
   display: flex;
@@ -1194,20 +1198,22 @@ footer {
 
 <!-- ═══ NAVBAR ═══ -->
 <nav id="navbar" class="at-top">
-  <div class="nav-logo" data-uk="Чисто <span>завжди.</span>" data-en="Always <span>Clean.</span>">Чисто <span>завжди.</span></div>
+  <div class="nav-logo">
+    <img src="logo.png" alt="London Home Crystal Service" class="nav-logo-img">
+  </div>
   <ul class="nav-links">
-    <li><a href="#about" data-uk="Про нас" data-en="About">Про нас</a></li>
-    <li><a href="#services" data-uk="Послуги" data-en="Services">Послуги</a></li>
-    <li><a href="#reviews" data-uk="Відгуки" data-en="Reviews">Відгуки</a></li>
+    <li><a href="#about" data-uk="Про нас" data-en="About">About</a></li>
+    <li><a href="#services" data-uk="Послуги" data-en="Services">Services</a></li>
+    <li><a href="#reviews" data-uk="Відгуки" data-en="Reviews">Reviews</a></li>
     <li><a href="#faq" data-uk="FAQ" data-en="FAQ">FAQ</a></li>
   </ul>
   <div class="nav-right">
     <div class="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('uk')">UA</button>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('uk')">UA</button>
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
     </div>
-    <button class="btn-book-nav" onclick="openPopup()" data-uk="Записатись" data-en="Book Now">Записатись</button>
-    <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Меню">
+    <button class="btn-book-nav" onclick="openPopup()" data-uk="Записатись" data-en="Book Now">Book Now</button>
+    <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -1215,11 +1221,11 @@ footer {
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#about" onclick="closeMenu()" data-uk="Про нас" data-en="About">Про нас</a>
-  <a href="#services" onclick="closeMenu()" data-uk="Послуги" data-en="Services">Послуги</a>
-  <a href="#reviews" onclick="closeMenu()" data-uk="Відгуки" data-en="Reviews">Відгуки</a>
+  <a href="#about" onclick="closeMenu()" data-uk="Про нас" data-en="About">About</a>
+  <a href="#services" onclick="closeMenu()" data-uk="Послуги" data-en="Services">Services</a>
+  <a href="#reviews" onclick="closeMenu()" data-uk="Відгуки" data-en="Reviews">Reviews</a>
   <a href="#faq" onclick="closeMenu()" data-uk="FAQ" data-en="FAQ">FAQ</a>
-  <button class="btn-book-nav" onclick="openPopup(); closeMenu();" data-uk="Записатись на прибирання" data-en="Book Cleaning">Записатись на прибирання</button>
+  <button class="btn-book-nav" onclick="openPopup(); closeMenu();" data-uk="Записатись на прибирання" data-en="Book a Cleaning">Book a Cleaning</button>
 </div>
 
 <!-- ═══ HERO ═══ -->
@@ -1229,12 +1235,12 @@ footer {
   <div id="hero-overlay"></div>
 
   <div class="hero-left reveal">
-    <div class="hero-badge" data-uk="✨ Клінінг Тернопіль" data-en="✨ Cleaning Ternopil">✨ Клінінг Тернопіль</div>
-    <h1 data-uk="Бездоганна чистота — <em>без зусиль</em> з вашого боку" data-en="Spotless clean — <em>effortlessly</em> for you">Бездоганна чистота — <em>без зусиль</em> з вашого боку</h1>
-    <p class="hero-utp" data-uk="Ми прибираємо так, щоб ви могли займатись тим, що важливо. Професійний клінінг квартир, офісів та комерційних приміщень у Тернополі." data-en="We clean so you can focus on what matters. Professional cleaning of apartments, offices and commercial spaces in Ternopil.">Ми прибираємо так, щоб ви могли займатись тим, що важливо. Професійний клінінг квартир, офісів та комерційних приміщень у Тернополі.</p>
+    <div class="hero-badge" data-uk="✨ Клінінг Лондон" data-en="✨ Cleaning London">✨ Cleaning London</div>
+    <h1 data-uk="Кришталева чистота — <em>без зусиль</em> з вашого боку" data-en="Crystal clean — <em>effortlessly</em> delivered to you">Crystal clean — <em>effortlessly</em> delivered to you</h1>
+    <p class="hero-utp" data-uk="Ми прибираємо так, щоб ви могли займатись тим, що важливо. Професійний клінінг будинків, квартир та офісів у Лондоні." data-en="We clean so you can focus on what truly matters. Professional home, apartment and office cleaning across London, delivered with a spirit of care.">We clean so you can focus on what truly matters. Professional home, apartment and office cleaning across London, delivered with a spirit of care.</p>
     <div class="hero-btns">
-      <button class="btn-primary" onclick="openPopup()" data-uk="Записатись на прибирання" data-en="Book a Cleaning">Записатись на прибирання</button>
-      <button class="btn-outline" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})" data-uk="Дізнатися більше" data-en="Learn More">Дізнатися більше</button>
+      <button class="btn-primary" onclick="openPopup()" data-uk="Замовити прибирання" data-en="Book a Cleaning">Book a Cleaning</button>
+      <button class="btn-outline" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})" data-uk="Дізнатися більше" data-en="Learn More">Learn More</button>
     </div>
   </div>
 
@@ -1243,36 +1249,36 @@ footer {
       <div class="hero-bullet">
         <div class="bullet-icon">⚡</div>
         <div class="bullet-text">
-          <strong data-uk="Швидко" data-en="Fast">Швидко</strong>
-          <span data-uk="Прибираємо за 2–4 години" data-en="Done in 2–4 hours">Прибираємо за 2–4 години</span>
+          <strong data-uk="Швидко" data-en="Fast & Reliable">Fast & Reliable</strong>
+          <span data-uk="Прибираємо за 2–4 години" data-en="Done in 2–4 hours">Done in 2–4 hours</span>
         </div>
       </div>
       <div class="hero-bullet">
-        <div class="bullet-icon">🧴</div>
+        <div class="bullet-icon">🌿</div>
         <div class="bullet-text">
-          <strong data-uk="Еко-засоби" data-en="Eco Products">Еко-засоби</strong>
-          <span data-uk="Безпечно для дітей і тварин" data-en="Safe for kids & pets">Безпечно для дітей і тварин</span>
+          <strong data-uk="Еко-засоби" data-en="Eco Products">Eco Products</strong>
+          <span data-uk="Безпечно для дітей і тварин" data-en="Safe for kids & pets">Safe for kids & pets</span>
         </div>
       </div>
       <div class="hero-bullet">
         <div class="bullet-icon">✅</div>
         <div class="bullet-text">
-          <strong data-uk="Гарантія якості" data-en="Quality Guarantee">Гарантія якості</strong>
-          <span data-uk="Повернемось безкоштовно" data-en="Free return visit">Повернемось безкоштовно</span>
+          <strong data-uk="Гарантія якості" data-en="Satisfaction Guarantee">Satisfaction Guarantee</strong>
+          <span data-uk="Повернемось безкоштовно" data-en="Free re-clean if needed">Free re-clean if needed</span>
         </div>
       </div>
       <div class="hero-bullet">
         <div class="bullet-icon">📅</div>
         <div class="bullet-text">
-          <strong data-uk="Зручний графік" data-en="Flexible Schedule">Зручний графік</strong>
-          <span data-uk="Працюємо 7 днів на тиждень" data-en="7 days a week">Працюємо 7 днів на тиждень</span>
+          <strong data-uk="Гнучкий графік" data-en="Flexible Schedule">Flexible Schedule</strong>
+          <span data-uk="Працюємо 7 днів на тиждень" data-en="7 days a week">7 days a week</span>
         </div>
       </div>
       <div class="hero-bullet">
         <div class="bullet-icon">💎</div>
         <div class="bullet-text">
-          <strong data-uk="Досвідчена команда" data-en="Expert Team">Досвідчена команда</strong>
-          <span data-uk="Понад 500 виконаних замовлень" data-en="500+ completed orders">Понад 500 виконаних замовлень</span>
+          <strong data-uk="Досвідчена команда" data-en="Expert Team">Expert Team</strong>
+          <span data-uk="Понад 500 виконаних замовлень" data-en="500+ happy clients">500+ happy clients</span>
         </div>
       </div>
     </div>
@@ -1283,25 +1289,25 @@ footer {
 <section id="about">
   <div class="about-grid">
     <div class="about-img-wrap reveal">
-      <img src="about.jpg" alt="Команда Чисто завжди" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+      <img src="about.jpg" alt="London Home Crystal Service team" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
       <div class="about-img-placeholder" style="display:none">🧹</div>
     </div>
     <div class="about-content reveal">
-      <div class="section-tag" data-uk="Про компанію" data-en="About Us">Про компанію</div>
-      <h2 class="section-title" data-uk="Чистота — наша професія, ваш <em>комфорт</em> — наш пріоритет" data-en="Cleanliness is our profession, your <em>comfort</em> — our priority">Чистота — наша професія, ваш <em>комфорт</em> — наш пріоритет</h2>
-      <p class="about-text" data-uk="Компанія «Чисто завжди» надає професійні клінінгові послуги у Тернополі з 2020 року. Ми використовуємо лише сертифіковані еко-засоби, які безпечні для вашої родини та домашніх улюбленців. Наша команда — це навчені фахівці, які знають кожен куточок та кожну пляму. Ми пишаємось тим, що понад 80% наших клієнтів повертаються знову." data-en="«Chysto Zavzhdy» has been providing professional cleaning services in Ternopil since 2020. We use only certified eco-friendly products that are safe for your family and pets. Our team are trained specialists who know every corner and every stain. We are proud that over 80% of our clients return again.">Компанія «Чисто завжди» надає професійні клінінгові послуги у Тернополі з 2020 року. Ми використовуємо лише сертифіковані еко-засоби, які безпечні для вашої родини та домашніх улюбленців. Наша команда — це навчені фахівці, які знають кожен куточок та кожну пляму. Ми пишаємось тим, що понад 80% наших клієнтів повертаються знову.</p>
+      <div class="section-tag" data-uk="Про компанію" data-en="About Us">About Us</div>
+      <h2 class="section-title" data-uk="Чистота — наша <em>пристрасть</em>, ваш комфорт — наш пріоритет" data-en="Cleaning is our <em>passion</em>, your comfort is our priority">Cleaning is our <em>passion</em>, your comfort is our priority</h2>
+      <p class="about-text" data-uk="London Home Crystal Service — це професійна клінінгова компанія, заснована у Східному Лондоні. Ми — команда з досвідом і душею, яка прагне надавати найвищу якість прибирання для приватних осіб та комерційних об'єктів. Ми використовуємо лише еко-сертифіковані засоби, безпечні для вашої родини та улюбленців. Понад 80% наших клієнтів повертаються знову — і це наша найкраща нагорода." data-en="London Home Crystal Service is a professional cleaning company based in East London. We are a team with years of experience and a spirit of care, dedicated to delivering the highest quality cleaning for both residential and commercial properties. We use only eco-certified products that are safe for your family and pets. Over 80% of our clients come back — and that is our greatest reward.">London Home Crystal Service is a professional cleaning company based in East London. We are a team with years of experience and a spirit of care, dedicated to delivering the highest quality cleaning for both residential and commercial properties. We use only eco-certified products that are safe for your family and pets. Over 80% of our clients come back — and that is our greatest reward.</p>
       <ul class="about-perks">
         <li class="about-perk">
           <div class="perk-check">✓</div>
-          <span data-uk="Понад 500 виконаних замовлень" data-en="Over 500 completed orders">Понад 500 виконаних замовлень</span>
+          <span data-uk="Понад 500 задоволених клієнтів у Лондоні" data-en="500+ satisfied clients across London">500+ satisfied clients across London</span>
         </li>
         <li class="about-perk">
           <div class="perk-check">✓</div>
-          <span data-uk="Еко-сертифіковані засоби" data-en="Eco-certified products">Еко-сертифіковані засоби</span>
+          <span data-uk="Еко-сертифіковані безпечні засоби" data-en="Eco-certified, family-safe products">Eco-certified, family-safe products</span>
         </li>
         <li class="about-perk">
           <div class="perk-check">✓</div>
-          <span data-uk="Безкоштовне повернення при незадоволенні" data-en="Free return if unsatisfied">Безкоштовне повернення при незадоволенні</span>
+          <span data-uk="Безкоштовне повторне прибирання при незадоволенні" data-en="Free re-clean if not fully satisfied">Free re-clean if not fully satisfied</span>
         </li>
       </ul>
     </div>
@@ -1311,109 +1317,109 @@ footer {
 <!-- ═══ SERVICES ═══ -->
 <section id="services">
   <div class="services-header reveal">
-    <div class="section-tag" data-uk="Наші послуги" data-en="Our Services">Наші послуги</div>
-    <h2 class="section-title" data-uk="Все, що потрібно для <em>ідеальної чистоти</em>" data-en="Everything you need for <em>perfect clean</em>">Все, що потрібно для <em>ідеальної чистоти</em></h2>
+    <div class="section-tag" data-uk="Наші послуги" data-en="Our Services">Our Services</div>
+    <h2 class="section-title" data-uk="Все для <em>кришталевої чистоти</em> вашого дому" data-en="Everything for <em>crystal clean</em> results">Everything for <em>crystal clean</em> results</h2>
   </div>
   <div class="services-grid">
 
-    <div class="service-card reveal" onclick="openServicePopup('Генеральне прибирання', 'від 800 грн')">
-      <div class="book-badge" data-uk="📋 Записатись" data-en="📋 Book">📋 Записатись</div>
+    <div class="service-card reveal" onclick="openServicePopup('Home & Office Cleaning', '£40–£80 / hour')">
+      <div class="book-badge" data-uk="📋 Замовити" data-en="📋 Book">📋 Book</div>
       <div class="service-img-wrap">
-        <img src="service1.jpg" alt="Генеральне прибирання" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <img src="service1.jpg" alt="Home & Office Cleaning" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
         <div class="svc-placeholder" style="background:linear-gradient(135deg,#e0f4fd,#b8e4f9);display:none">🏠</div>
       </div>
       <div class="service-body">
         <div class="svc-num">01</div>
-        <div class="svc-name" data-uk="Генеральне прибирання" data-en="Deep Cleaning">Генеральне прибирання</div>
-        <div class="svc-desc" data-uk="Ретельне прибирання кожного куточка квартири чи будинку" data-en="Thorough cleaning of every corner of your apartment or house">Ретельне прибирання кожного куточка квартири чи будинку</div>
+        <div class="svc-name" data-uk="Прибирання будинку та офісу" data-en="Home & Office Cleaning">Home & Office Cleaning</div>
+        <div class="svc-desc" data-uk="Комплексне прибирання: пилосос, миття підлог, санвузол, кухня. Ваш дім залишається бездоганним." data-en="Comprehensive cleaning tailored to your needs — dusting, vacuuming, mopping, bathroom & kitchen deep cleaning.">Comprehensive cleaning tailored to your needs — dusting, vacuuming, mopping, bathroom & kitchen deep cleaning.</div>
         <div class="svc-footer">
-          <div class="svc-price" data-uk="від 800 грн" data-en="from 800 UAH">від 800 грн</div>
+          <div class="svc-price" data-uk="£40–£80 / год." data-en="£40–£80 / hour">£40–£80 / hour</div>
           <div class="svc-arrow">→</div>
         </div>
       </div>
     </div>
 
-    <div class="service-card reveal" onclick="openServicePopup('Регулярне прибирання', 'від 400 грн')">
-      <div class="book-badge" data-uk="📋 Записатись" data-en="📋 Book">📋 Записатись</div>
+    <div class="service-card reveal" onclick="openServicePopup('Deep Cleaning', '£40–£80 / hour')">
+      <div class="book-badge" data-uk="📋 Замовити" data-en="📋 Book">📋 Book</div>
       <div class="service-img-wrap">
-        <img src="service2.jpg" alt="Регулярне прибирання" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-        <div class="svc-placeholder" style="background:linear-gradient(135deg,#e0f4fd,#b8e4f9);display:none">🔄</div>
+        <img src="service2.jpg" alt="Deep Cleaning" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="svc-placeholder" style="background:linear-gradient(135deg,#e0f4fd,#b8e4f9);display:none">✨</div>
       </div>
       <div class="service-body">
         <div class="svc-num">02</div>
-        <div class="svc-name" data-uk="Регулярне прибирання" data-en="Regular Cleaning">Регулярне прибирання</div>
-        <div class="svc-desc" data-uk="Щотижневий або щомісячний догляд за вашим простором" data-en="Weekly or monthly care for your space">Щотижневий або щомісячний догляд за вашим простором</div>
+        <div class="svc-name" data-uk="Генеральне прибирання" data-en="Deep Cleaning">Deep Cleaning</div>
+        <div class="svc-desc" data-uk="Інтенсивне прибирання кожної деталі: техніка, холодильник, кахель, жир — все до блиску." data-en="Intensive cleaning covering every detail — appliances, oven, fridge, tiles, grease removal and thorough bathroom treatment.">Intensive cleaning covering every detail — appliances, oven, fridge, tiles, grease removal and thorough bathroom treatment.</div>
         <div class="svc-footer">
-          <div class="svc-price" data-uk="від 400 грн" data-en="from 400 UAH">від 400 грн</div>
+          <div class="svc-price" data-uk="£40–£80 / год." data-en="£40–£80 / hour">£40–£80 / hour</div>
           <div class="svc-arrow">→</div>
         </div>
       </div>
     </div>
 
-    <div class="service-card reveal" onclick="openServicePopup('Прибирання після ремонту', 'від 1200 грн')">
-      <div class="book-badge" data-uk="📋 Записатись" data-en="📋 Book">📋 Записатись</div>
+    <div class="service-card reveal" onclick="openServicePopup('End of Tenancy Cleaning', 'from £190 / studio')">
+      <div class="book-badge" data-uk="📋 Замовити" data-en="📋 Book">📋 Book</div>
       <div class="service-img-wrap">
-        <img src="service3.jpg" alt="Прибирання після ремонту" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <img src="service3.jpg" alt="End of Tenancy Cleaning" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
         <div class="svc-placeholder" style="background:linear-gradient(135deg,#e0f4fd,#b8e4f9);display:none">🏗️</div>
       </div>
       <div class="service-body">
         <div class="svc-num">03</div>
-        <div class="svc-name" data-uk="Прибирання після ремонту" data-en="Post-Renovation Cleaning">Прибирання після ремонту</div>
-        <div class="svc-desc" data-uk="Видалення будівельного пилу, шпаклівки та клею після ремонтних робіт" data-en="Removal of construction dust, putty and glue after renovation">Видалення будівельного пилу, шпаклівки та клею після ремонтних робіт</div>
+        <div class="svc-name" data-uk="Прибирання при виїзді" data-en="End of Tenancy Cleaning">End of Tenancy Cleaning</div>
+        <div class="svc-desc" data-uk="Спеціалізований сервіс для повернення депозиту. Агентський стандарт чистоти — гарантовано." data-en="Specialised service to help tenants recover their full deposit. Agency-standard clean, ensuring the property is left in pristine condition.">Specialised service to help tenants recover their full deposit. Agency-standard clean, ensuring the property is left in pristine condition.</div>
         <div class="svc-footer">
-          <div class="svc-price" data-uk="від 1200 грн" data-en="from 1200 UAH">від 1200 грн</div>
+          <div class="svc-price" data-uk="від £190 / студія" data-en="from £190 / studio">from £190 / studio</div>
           <div class="svc-arrow">→</div>
         </div>
       </div>
     </div>
 
-    <div class="service-card reveal" onclick="openServicePopup('Офісний клінінг', 'від 600 грн')">
-      <div class="book-badge" data-uk="📋 Записатись" data-en="📋 Book">📋 Записатись</div>
+    <div class="service-card reveal" onclick="openServicePopup('Window Cleaning', 'Contact for quote')">
+      <div class="book-badge" data-uk="📋 Замовити" data-en="📋 Book">📋 Book</div>
       <div class="service-img-wrap">
-        <img src="service4.jpg" alt="Офісний клінінг" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-        <div class="svc-placeholder" style="background:linear-gradient(135deg,#e0f4fd,#b8e4f9);display:none">💼</div>
-      </div>
-      <div class="service-body">
-        <div class="svc-num">04</div>
-        <div class="svc-name" data-uk="Офісний клінінг" data-en="Office Cleaning">Офісний клінінг</div>
-        <div class="svc-desc" data-uk="Підтримання чистоти у вашому офісі щодня або кілька разів на тиждень" data-en="Maintaining cleanliness in your office daily or several times a week">Підтримання чистоти у вашому офісі щодня або кілька разів на тиждень</div>
-        <div class="svc-footer">
-          <div class="svc-price" data-uk="від 600 грн" data-en="from 600 UAH">від 600 грн</div>
-          <div class="svc-arrow">→</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="service-card reveal" onclick="openServicePopup('Миття вікон', 'від 200 грн')">
-      <div class="book-badge" data-uk="📋 Записатись" data-en="📋 Book">📋 Записатись</div>
-      <div class="service-img-wrap">
-        <img src="service5.jpg" alt="Миття вікон" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <img src="service4.jpg" alt="Window Cleaning" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
         <div class="svc-placeholder" style="background:linear-gradient(135deg,#e0f4fd,#b8e4f9);display:none">🪟</div>
       </div>
       <div class="service-body">
-        <div class="svc-num">05</div>
-        <div class="svc-name" data-uk="Миття вікон" data-en="Window Washing">Миття вікон</div>
-        <div class="svc-desc" data-uk="Кристально чисті вікна без розводів зсередини та зовні" data-en="Crystal clean windows without streaks inside and out">Кристально чисті вікна без розводів зсередини та зовні</div>
+        <div class="svc-num">04</div>
+        <div class="svc-name" data-uk="Миття вікон" data-en="Professional Window Cleaning">Professional Window Cleaning</div>
+        <div class="svc-desc" data-uk="Кристально чисті вікна без розводів — зсередини та зовні. Для житла та комерції." data-en="Crystal-clear windows inside and out, no streaks. Specialist equipment for residential and commercial properties.">Crystal-clear windows inside and out, no streaks. Specialist equipment for residential and commercial properties.</div>
         <div class="svc-footer">
-          <div class="svc-price" data-uk="від 200 грн" data-en="from 200 UAH">від 200 грн</div>
+          <div class="svc-price" data-uk="Ціна за запитом" data-en="Contact for quote">Contact for quote</div>
           <div class="svc-arrow">→</div>
         </div>
       </div>
     </div>
 
-    <div class="service-card hit reveal" onclick="openServicePopup('Хіт-пакет: Комплексне прибирання', 'від 1500 грн')">
-      <div class="book-badge" data-uk="📋 Записатись" data-en="📋 Book">📋 Записатись</div>
+    <div class="service-card reveal" onclick="openServicePopup('Carpet Cleaning', 'Contact for quote')">
+      <div class="book-badge" data-uk="📋 Замовити" data-en="📋 Book">📋 Book</div>
       <div class="service-img-wrap">
-        <img src="service6.jpg" alt="Хіт-пакет" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <img src="service5.jpg" alt="Carpet Cleaning" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="svc-placeholder" style="background:linear-gradient(135deg,#e0f4fd,#b8e4f9);display:none">🪣</div>
+      </div>
+      <div class="service-body">
+        <div class="svc-num">05</div>
+        <div class="svc-name" data-uk="Чищення килимів" data-en="Carpet Cleaning">Carpet Cleaning</div>
+        <div class="svc-desc" data-uk="Глибоке очищення килимів: видалення плям, запахів, алергенів. Продовжуємо термін служби ваших килимів." data-en="Deep extraction cleaning — removes stains, odours and allergens, extends carpet life and restores freshness.">Deep extraction cleaning — removes stains, odours and allergens, extends carpet life and restores freshness.</div>
+        <div class="svc-footer">
+          <div class="svc-price" data-uk="Ціна за запитом" data-en="Contact for quote">Contact for quote</div>
+          <div class="svc-arrow">→</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-card hit reveal" onclick="openServicePopup('Crystal Package: Full Home Clean', 'from £150')">
+      <div class="book-badge" data-uk="📋 Замовити" data-en="📋 Book">📋 Book</div>
+      <div class="service-img-wrap">
+        <img src="service6.jpg" alt="Crystal Package" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
         <div class="svc-placeholder" style="background:rgba(255,255,255,.12);display:none">⭐</div>
       </div>
       <div class="service-body">
         <div class="svc-num">06</div>
-        <div class="hit-badge" data-uk="⭐ Найпопулярніше" data-en="⭐ Most Popular">⭐ Найпопулярніше</div>
-        <div class="svc-name" data-uk="Хіт-пакет: Комплексне прибирання" data-en="Hit Package: Full Cleaning">Хіт-пакет: Комплексне прибирання</div>
-        <div class="svc-desc" data-uk="Генеральне + вікна + балкон + холодильник — все в одному візиті" data-en="Deep clean + windows + balcony + fridge — all in one visit">Генеральне + вікна + балкон + холодильник — все в одному візиті</div>
+        <div class="hit-badge" data-uk="⭐ Найпопулярніше" data-en="⭐ Most Popular">⭐ Most Popular</div>
+        <div class="svc-name" data-uk="Кришталевий пакет: Повне прибирання" data-en="Crystal Package: Full Home Clean">Crystal Package: Full Home Clean</div>
+        <div class="svc-desc" data-uk="Генеральне + вікна + килими + прасування — все за один візит. Найвигідніше рішення." data-en="Deep clean + windows + carpet + ironing — all in one visit. Best value complete home care solution.">Deep clean + windows + carpet + ironing — all in one visit. Best value complete home care solution.</div>
         <div class="svc-footer">
-          <div class="svc-price" data-uk="від 1500 грн" data-en="from 1500 UAH">від 1500 грн</div>
+          <div class="svc-price" data-uk="від £150" data-en="from £150">from £150</div>
           <div class="svc-arrow">→</div>
         </div>
       </div>
@@ -1425,55 +1431,103 @@ footer {
 <!-- ═══ REVIEWS ═══ -->
 <section id="reviews">
   <div class="reviews-header reveal">
-    <div class="section-tag" data-uk="Відгуки клієнтів" data-en="Client Reviews">Відгуки клієнтів</div>
-    <h2 class="section-title" data-uk="Що кажуть наші <em>клієнти</em>" data-en="What our <em>clients</em> say">Що кажуть наші <em>клієнти</em></h2>
+    <div class="section-tag" data-uk="Відгуки клієнтів" data-en="Client Reviews">Client Reviews</div>
+    <h2 class="section-title" data-uk="Що кажуть наші <em>клієнти</em>" data-en="What our <em>clients</em> say">What our <em>clients</em> say</h2>
   </div>
   <div class="reviews-track">
 
     <div class="review-card reveal">
       <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-uk="«Замовляла генеральне прибирання перед переїздом. Команда впоралась за 3 години — квартира засяяла! Особливо вразило, як відмили плитку у ванній. Рекомендую всім!»" data-en="«I ordered a deep clean before moving. The team finished in 3 hours — the apartment sparkled! I was especially impressed by how they cleaned the bathroom tiles. I recommend to everyone!»">«Замовляла генеральне прибирання перед переїздом. Команда впоралась за 3 години — квартира засяяла! Особливо вразило, як відмили плитку у ванній. Рекомендую всім!»</p>
+      <p class="review-text" data-uk="«Замовляла прибирання при виїзді в Іслінгтоні. Команда зробила неймовірну роботу — я отримала повний депозит назад без жодних питань від агентства!»" data-en="«Booked an end of tenancy clean for my flat in Islington. The team did an incredible job — I got my full deposit back with no issues from the agency whatsoever!»">«Booked an end of tenancy clean for my flat in Islington. The team did an incredible job — I got my full deposit back with no issues from the agency whatsoever!»</p>
       <div class="review-footer">
-        <div class="review-avatar">О</div>
+        <div class="review-avatar">S</div>
         <div>
-          <div class="review-name">Оксана Петренко</div>
-          <div class="review-date">15.03.2024</div>
+          <div class="review-name">Sarah Thompson</div>
+          <div class="review-date">12.03.2025</div>
         </div>
       </div>
     </div>
 
     <div class="review-card reveal">
       <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-uk="«Регулярно замовляємо прибирання офісу. Вже пів року співпрацюємо — жодного разу не підвели. Приходять вчасно, роблять якісно, завжди ввічливі.»" data-en="«We regularly order office cleaning. We have been working together for half a year — never let us down. They come on time, do quality work, always polite.»">«Регулярно замовляємо прибирання офісу. Вже пів року співпрацюємо — жодного разу не підвели. Приходять вчасно, роблять якісно, завжди ввічливі.»</p>
+      <p class="review-text" data-uk="«Ми використовуємо їхній офісний клінінг щотижня в Камден Тауні. Пунктуальні, ретельні, завжди ввічливі. За шість місяців — жодного разу не підвели.»" data-en="«We use them weekly for our office in Camden Town. Punctual, thorough and always polite. Six months in and they have never once let us down — highly recommend!»">«We use them weekly for our office in Camden Town. Punctual, thorough and always polite. Six months in and they have never once let us down — highly recommend!»</p>
       <div class="review-footer">
-        <div class="review-avatar">А</div>
+        <div class="review-avatar">J</div>
         <div>
-          <div class="review-name">Андрій Ковальчук</div>
-          <div class="review-date">08.02.2024</div>
+          <div class="review-name">James Hartley</div>
+          <div class="review-date">28.02.2025</div>
         </div>
       </div>
     </div>
 
     <div class="review-card reveal">
       <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-uk="«Після ремонту звернулась у «Чисто завжди». Не уявляла, як можна так ретельно прибрати! Весь будівельний пил і сміття зникли за один день.»" data-en="«After renovation I turned to «Chysto Zavzhdy». I could not imagine such a thorough clean! All construction dust and debris disappeared in one day.»">«Після ремонту звернулась у «Чисто завжди». Не уявляла, як можна так ретельно прибрати! Весь будівельний пил і сміття зникли за один день.»</p>
+      <p class="review-text" data-uk="«Замовила кришталевий пакет для свого будинку в Хакні. Вікна блищать, килими як нові, і навіть прасування зробили ідеально. Неймовірне співвідношення ціни і якості!»" data-en="«Booked the Crystal Package for my house in Hackney. Windows sparkle, carpets look brand new and the ironing was done to perfection. Incredible value for money!»">«Booked the Crystal Package for my house in Hackney. Windows sparkle, carpets look brand new and the ironing was done to perfection. Incredible value for money!»</p>
       <div class="review-footer">
-        <div class="review-avatar">М</div>
+        <div class="review-avatar">E</div>
         <div>
-          <div class="review-name">Марина Савченко</div>
-          <div class="review-date">22.01.2024</div>
+          <div class="review-name">Emily Carter</div>
+          <div class="review-date">14.01.2025</div>
         </div>
       </div>
     </div>
 
     <div class="review-card reveal">
       <div class="review-stars">★★★★★</div>
-      <p class="review-text" data-uk="«Замовила пакет «Хіт» — залишилась у захваті. Вікна блищать, холодильник чистий, балкон як новий. Ціна повністю відповідає якості!»" data-en="«I ordered the Hit package — I was delighted. Windows sparkle, fridge is clean, balcony is like new. The price fully matches the quality!»">«Замовила пакет «Хіт» — залишилась у захваті. Вікна блищать, холодильник чистий, балкон як новий. Ціна повністю відповідає якості!»</p>
+      <p class="review-text" data-uk="«Замовив генеральне прибирання перед тим, як батьки приїхали з візитом. Все виглядало краще, ніж коли я тільки в'їхав! Команда дуже уважна до деталей.»" data-en="«Had a deep clean done before my parents visited from Edinburgh. The flat looked better than when I first moved in! The team are incredibly detail-oriented.»">«Had a deep clean done before my parents visited from Edinburgh. The flat looked better than when I first moved in! The team are incredibly detail-oriented.»</p>
       <div class="review-footer">
-        <div class="review-avatar">І</div>
+        <div class="review-avatar">O</div>
         <div>
-          <div class="review-name">Ірина Мельник</div>
-          <div class="review-date">05.04.2024</div>
+          <div class="review-name">Oliver Bennett</div>
+          <div class="review-date">05.04.2025</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-uk="«Нарешті знайшла надійний клінінг у Шордіч! Використовую їхній регулярний сервіс вже 4 місяці. Приходять вчасно, ніколи не скасовують, завжди залишаю дім в ідеальному стані.»" data-en="«Finally found a reliable cleaner in Shoreditch! Been using their regular service for 4 months now — always on time, never cancelled, and my flat is always left immaculate.»">«Finally found a reliable cleaner in Shoreditch! Been using their regular service for 4 months now — always on time, never cancelled, and my flat is always left immaculate.»</p>
+      <div class="review-footer">
+        <div class="review-avatar">P</div>
+        <div>
+          <div class="review-name">Priya Sharma</div>
+          <div class="review-date">19.03.2025</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-uk="«Я дуже прискіплива до чистоти, але ці хлопці перевершили всі очікування. Чищення килимів в моєму вікторіанському будинку в Брікстоні — результат приголомшливий!»" data-en="«I am very particular about cleanliness but these guys exceeded all expectations. The carpet cleaning in my Victorian terrace in Brixton — the results were absolutely stunning!»">«I am very particular about cleanliness but these guys exceeded all expectations. The carpet cleaning in my Victorian terrace in Brixton — the results were absolutely stunning!»</p>
+      <div class="review-footer">
+        <div class="review-avatar">C</div>
+        <div>
+          <div class="review-name">Charlotte Webb</div>
+          <div class="review-date">07.02.2025</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-uk="«Скористався миттям вікон для мого ресторану в Ковент-Гарден. Прозоро, без розводів, і зробили це швидше, ніж я очікував. Точно скористаюсь знову!»" data-en="«Used their window cleaning for my restaurant in Covent Garden. Crystal clear with zero streaks, and they finished faster than I expected. Will absolutely use them again!»">«Used their window cleaning for my restaurant in Covent Garden. Crystal clear with zero streaks, and they finished faster than I expected. Will absolutely use them again!»</p>
+      <div class="review-footer">
+        <div class="review-avatar">M</div>
+        <div>
+          <div class="review-name">Marcus Powell</div>
+          <div class="review-date">22.04.2025</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-uk="«Після ремонту на кухні я була в жаху від будівельного пилу. London Home Crystal Service очистила все за один день. Тепер це єдина компанія, якій я довіряю!»" data-en="«After kitchen renovations I was horrified by the construction dust everywhere. London Home Crystal Service cleared everything in one day. They are the only cleaners I will ever trust now!»">«After kitchen renovations I was horrified by the construction dust everywhere. London Home Crystal Service cleared everything in one day. They are the only cleaners I will ever trust now!»</p>
+      <div class="review-footer">
+        <div class="review-avatar">R</div>
+        <div>
+          <div class="review-name">Rachel Donovan</div>
+          <div class="review-date">01.05.2025</div>
         </div>
       </div>
     </div>
@@ -1484,56 +1538,56 @@ footer {
 <!-- ═══ FAQ ═══ -->
 <section id="faq">
   <div class="faq-header reveal">
-    <div class="section-tag" data-uk="Питання та відповіді" data-en="FAQ">Питання та відповіді</div>
-    <h2 class="section-title" data-uk="Відповіді на <em>часті питання</em>" data-en="Answers to <em>common questions</em>">Відповіді на <em>часті питання</em></h2>
+    <div class="section-tag" data-uk="Питання та відповіді" data-en="FAQ">FAQ</div>
+    <h2 class="section-title" data-uk="Відповіді на <em>часті питання</em>" data-en="Answers to <em>common questions</em>">Answers to <em>common questions</em></h2>
   </div>
   <div class="faq-list">
 
     <div class="faq-item reveal">
       <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-uk="Скільки часу займає прибирання квартири?" data-en="How long does apartment cleaning take?">Скільки часу займає прибирання квартири?</span>
+        <span data-uk="Скільки часу займає прибирання квартири?" data-en="How long does a typical cleaning take?">How long does a typical cleaning take?</span>
         <div class="faq-toggle">+</div>
       </button>
       <div class="faq-a">
-        <p data-uk="Час залежить від площі та типу прибирання. Стандартне прибирання 2-кімнатної квартири займає 2–3 години, генеральне — 4–6 годин. Точний час узгоджується при замовленні." data-en="Time depends on the area and type of cleaning. Standard cleaning of a 2-room apartment takes 2–3 hours, deep cleaning — 4–6 hours. The exact time is agreed upon when ordering.">Час залежить від площі та типу прибирання. Стандартне прибирання 2-кімнатної квартири займає 2–3 години, генеральне — 4–6 годин. Точний час узгоджується при замовленні.</p>
+        <p data-uk="Час залежить від площі та типу прибирання. Стандартне прибирання квартири займає 2–3 години, генеральне — 4–6 годин. Точний час погоджується при бронюванні." data-en="It depends on the size and type of clean. A regular clean for a 2-bedroom flat typically takes 2–3 hours; a deep clean takes 4–6 hours. We always agree the exact timing when you book.">It depends on the size and type of clean. A regular clean for a 2-bedroom flat typically takes 2–3 hours; a deep clean takes 4–6 hours. We always agree the exact timing when you book.</p>
       </div>
     </div>
 
     <div class="faq-item reveal">
       <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-uk="Чи безпечні ваші засоби для дітей і домашніх тварин?" data-en="Are your products safe for children and pets?">Чи безпечні ваші засоби для дітей і домашніх тварин?</span>
+        <span data-uk="Чи безпечні ваші засоби для дітей і домашніх тварин?" data-en="Are your products safe for children and pets?">Are your products safe for children and pets?</span>
         <div class="faq-toggle">+</div>
       </button>
       <div class="faq-a">
-        <p data-uk="Так! Ми використовуємо виключно еко-сертифіковані засоби без хлору та агресивної хімії. Вони ефективні проти бруду, але абсолютно безпечні для вашої родини та улюбленців." data-en="Yes! We use only eco-certified products without chlorine or aggressive chemicals. They are effective against dirt but completely safe for your family and pets.">Так! Ми використовуємо виключно еко-сертифіковані засоби без хлору та агресивної хімії. Вони ефективні проти бруду, але абсолютно безпечні для вашої родини та улюбленців.</p>
+        <p data-uk="Так! Ми використовуємо лише еко-сертифіковані засоби без хлору та агресивної хімії. Ефективні проти бруду та абсолютно безпечні для вашої родини та улюбленців." data-en="Absolutely! We use only eco-certified, chlorine-free products that are tough on dirt but completely safe for children, pets and allergy sufferers. Your family's wellbeing is our priority.">Absolutely! We use only eco-certified, chlorine-free products that are tough on dirt but completely safe for children, pets and allergy sufferers. Your family's wellbeing is our priority.</p>
       </div>
     </div>
 
     <div class="faq-item reveal">
       <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-uk="Що робити, якщо я незадоволений результатом?" data-en="What if I'm not satisfied with the result?">Що робити, якщо я незадоволений результатом?</span>
+        <span data-uk="Що якщо я незадоволений результатом?" data-en="What if I'm not happy with the result?">What if I'm not happy with the result?</span>
         <div class="faq-toggle">+</div>
       </button>
       <div class="faq-a">
-        <p data-uk="Ваш комфорт — наш пріоритет. Якщо ви незадоволені якістю прибирання, ми повернемось і виправимо все безкоштовно протягом 24 годин. Без зайвих питань." data-en="Your comfort is our priority. If you are not satisfied with the quality of the cleaning, we will return and fix everything for free within 24 hours. No questions asked.">Ваш комфорт — наш пріоритет. Якщо ви незадоволені якістю прибирання, ми повернемось і виправимо все безкоштовно протягом 24 годин. Без зайвих питань.</p>
+        <p data-uk="Ваш комфорт — наш пріоритет. Якщо ви незадоволені, ми повернемось і зробимо повторне прибирання безкоштовно протягом 24 годин. Без зайвих питань." data-en="Your satisfaction is everything to us. If you are not fully happy, we will return and re-clean the relevant areas at no extra charge within 24 hours. No arguments, no hassle — just results.">Your satisfaction is everything to us. If you are not fully happy, we will return and re-clean the relevant areas at no extra charge within 24 hours. No arguments, no hassle — just results.</p>
       </div>
     </div>
 
     <div class="faq-item reveal">
       <button class="faq-q" onclick="toggleFaq(this)">
-        <span data-uk="Як замовити прибирання і скільки часу чекати?" data-en="How to order cleaning and how long to wait?">Як замовити прибирання і скільки часу чекати?</span>
+        <span data-uk="Як швидко ви зможете приїхати?" data-en="How quickly can you come?">How quickly can you come?</span>
         <div class="faq-toggle">+</div>
       </button>
       <div class="faq-a">
-        <p data-uk="Просто зателефонуйте або залиште заявку на сайті. Ми узгодимо зручний час і вже наступного дня зможемо виїхати до вас. У більшості випадків записуємо на той же або наступний день." data-en="Simply call or leave a request on the website. We will agree on a convenient time and can come to you the next day. In most cases we schedule for the same or next day.">Просто зателефонуйте або залиште заявку на сайті. Ми узгодимо зручний час і вже наступного дня зможемо виїхати до вас. У більшості випадків записуємо на той же або наступний день.</p>
+        <p data-uk="У більшості випадків ми можемо приїхати того ж або наступного дня. Просто зателефонуйте або залиште заявку — ми погодимо зручний час якнайшвидше." data-en="In most cases we can come the same day or next day across London. Simply call or leave a request on the website and we will agree a convenient time as soon as possible.">In most cases we can come the same day or next day across London. Simply call or leave a request on the website and we will agree a convenient time as soon as possible.</p>
       </div>
     </div>
 
   </div>
 
   <div class="faq-cta reveal">
-    <p data-uk="Залишились питання? Ми завжди готові допомогти!" data-en="Still have questions? We're always ready to help!">Залишились питання? Ми завжди готові допомогти!</p>
-    <button class="btn-primary" onclick="openPopup()" data-uk="Записатись на консультацію" data-en="Book a Consultation">Записатись на консультацію</button>
+    <p data-uk="Залишились питання? Ми завжди готові допомогти!" data-en="Still have questions? We're always happy to help!">Still have questions? We're always happy to help!</p>
+    <button class="btn-primary" onclick="openPopup()" data-uk="Замовити консультацію" data-en="Get a Free Quote">Get a Free Quote</button>
   </div>
 </section>
 
@@ -1541,24 +1595,26 @@ footer {
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-logo">Чисто <span>завжди.</span></div>
-      <p class="footer-slogan" data-uk="Ваш простір — наша турбота. Довіряйте прибирання професіоналам." data-en="Your space — our care. Trust cleaning to professionals.">Ваш простір — наша турбота. Довіряйте прибирання професіоналам.</p>
+      <div class="footer-logo">
+        <img src="logo.png" alt="London Home Crystal Service" style="height:48px;width:auto;filter:brightness(0) invert(1);margin-bottom:10px;">
+      </div>
+      <p class="footer-slogan" data-uk="Ваш простір — наша пристрасть. Кришталева чистота з душею." data-en="Your space — our passion. Crystal clean, delivered with care.">Your space — our passion. Crystal clean, delivered with care.</p>
       <div class="footer-socials">
         <a href="https://instagram.com/vmendaliuk" target="_blank" rel="noopener" class="social-btn" title="Instagram">📸</a>
         <a href="https://t.me/vmendaliuk" target="_blank" rel="noopener" class="social-btn" title="Telegram">✈️</a>
       </div>
     </div>
     <div>
-      <div class="footer-title" data-uk="Навігація" data-en="Navigation">Навігація</div>
+      <div class="footer-title" data-uk="Навігація" data-en="Navigation">Navigation</div>
       <ul class="footer-nav">
-        <li><a href="#about" data-uk="Про нас" data-en="About Us">Про нас</a></li>
-        <li><a href="#services" data-uk="Послуги" data-en="Services">Послуги</a></li>
-        <li><a href="#reviews" data-uk="Відгуки" data-en="Reviews">Відгуки</a></li>
+        <li><a href="#about" data-uk="Про нас" data-en="About Us">About Us</a></li>
+        <li><a href="#services" data-uk="Послуги" data-en="Services">Services</a></li>
+        <li><a href="#reviews" data-uk="Відгуки" data-en="Reviews">Reviews</a></li>
         <li><a href="#faq" data-uk="FAQ" data-en="FAQ">FAQ</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-title" data-uk="Контакти" data-en="Contacts">Контакти</div>
+      <div class="footer-title" data-uk="Контакти" data-en="Contacts">Contacts</div>
       <div class="footer-contacts">
         <a href="tel:+380335184537" class="footer-contact">
           <span class="contact-icon">📞</span>
@@ -1574,14 +1630,14 @@ footer {
         </a>
         <div class="footer-contact">
           <span class="contact-icon">📍</span>
-          <span data-uk="м. Тернопіль, вул. Шкільна, 5" data-en="Ternopil, Shkilna St., 5">м. Тернопіль, вул. Шкільна, 5</span>
+          <span data-uk="Лондон, Великобританія" data-en="London, United Kingdom">London, United Kingdom</span>
         </div>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© <span id="year"></span> — Чисто завжди. | <span data-uk="Всі права захищені" data-en="All rights reserved">Всі права захищені</span></span>
-    <span data-uk="Тернопіль, Україна" data-en="Ternopil, Ukraine">Тернопіль, Україна</span>
+    <span>© <span id="year"></span> — London Home Crystal Service | <span data-uk="Всі права захищені" data-en="All rights reserved">All rights reserved</span></span>
+    <span data-uk="Лондон, Великобританія" data-en="London, UK">London, UK</span>
   </div>
 </footer>
 
@@ -1589,25 +1645,25 @@ footer {
 <div id="popup-overlay" onclick="handleOverlayClick(event)">
   <div id="popup">
     <button id="popup-close" onclick="closePopup()">✕</button>
-    <h3 data-uk="Записатись на прибирання" data-en="Book a Cleaning">Записатись на прибирання</h3>
-    <p id="popup-subtitle" data-uk="Заповніть форму — ми зв'яжемось найближчим часом" data-en="Fill the form — we'll contact you shortly">Заповніть форму — ми зв'яжемось найближчим часом</p>
+    <h3 data-uk="Замовити прибирання" data-en="Book a Cleaning">Book a Cleaning</h3>
+    <p id="popup-subtitle" data-uk="Заповніть форму — ми зв'яжемось найближчим часом" data-en="Fill in the form — we'll be in touch shortly">Fill in the form — we'll be in touch shortly</p>
     <div id="popup-service-badge"></div>
     <form class="popup-form" onsubmit="submitForm(event)">
       <input type="hidden" id="f-service" name="service">
-      <input type="text" id="f-name" name="name" placeholder="Ваше ім'я" required minlength="2">
-      <input type="tel" id="f-phone" name="phone" placeholder="+380 XX XXX XX XX" required>
+      <input type="text" id="f-name" name="name" placeholder="Your name" required minlength="2">
+      <input type="tel" id="f-phone" name="phone" placeholder="+44 XXXX XXXXXX" required>
       <div class="popup-datetime">
         <div class="popup-dt-wrap">
-          <span class="popup-dt-label">📅 Бажана дата</span>
+          <span class="popup-dt-label">📅 Preferred date</span>
           <input type="date" id="f-date" name="date">
         </div>
         <div class="popup-dt-wrap">
-          <span class="popup-dt-label">🕐 Бажаний час</span>
+          <span class="popup-dt-label">🕐 Preferred time</span>
           <input type="time" id="f-time" name="time">
         </div>
       </div>
-      <textarea id="f-comment" name="comment" placeholder="Коментар (необов'язково)" rows="3"></textarea>
-      <button type="submit" class="btn-submit" data-uk="Надіслати заявку" data-en="Send Request">Надіслати заявку</button>
+      <textarea id="f-comment" name="comment" placeholder="Additional notes (optional)" rows="3"></textarea>
+      <button type="submit" class="btn-submit" data-uk="Надіслати заявку" data-en="Send Request">Send Request</button>
     </form>
   </div>
 </div>
@@ -1761,7 +1817,7 @@ function submitForm(e) {
 }
 
 /* ═══ LANGUAGE SWITCHER ═══ */
-let currentLang = 'uk';
+let currentLang = 'en';
 
 function setLang(lang) {
   currentLang = lang;
@@ -1780,7 +1836,15 @@ function setLang(lang) {
   const nameInput = document.getElementById('f-name');
   const commentInput = document.getElementById('f-comment');
   if (nameInput) nameInput.placeholder = lang === 'uk' ? 'Ваше ім\'я' : 'Your name';
-  if (commentInput) commentInput.placeholder = lang === 'uk' ? 'Коментар (необов\'язково)' : 'Comment (optional)';
+  if (commentInput) commentInput.placeholder = lang === 'uk' ? 'Коментар (необов\'язково)' : 'Additional notes (optional)';
+  /* Update date/time labels */
+  document.querySelectorAll('.popup-dt-label').forEach((el, i) => {
+    if (i === 0) el.textContent = lang === 'uk' ? '📅 Бажана дата' : '📅 Preferred date';
+    if (i === 1) el.textContent = lang === 'uk' ? '🕐 Бажаний час' : '🕐 Preferred time';
+  });
+  /* Update phone placeholder */
+  const phoneInput = document.getElementById('f-phone');
+  if (phoneInput) phoneInput.placeholder = lang === 'uk' ? '+380 XX XXX XX XX' : '+44 XXXX XXXXXX';
 
   /* Update submit button */
   const submitBtn = document.querySelector('.btn-submit');
@@ -1789,6 +1853,9 @@ function setLang(lang) {
 
 /* ═══ FOOTER YEAR ═══ */
 document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ═══ DEFAULT LANGUAGE: EN ═══ */
+setLang('en');
 </script>
 </body>
 </html>
