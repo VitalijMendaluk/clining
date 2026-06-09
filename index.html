@@ -877,9 +877,10 @@ footer {
 .footer-cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 60px;
   align-items: start;
 }
+.footer-right { min-width: 0; }
 /* LEFT COLUMN */
 .footer-left {}
 .footer-tag {
@@ -1698,10 +1699,10 @@ footer {
 
     <!-- TWO COLUMNS: contacts | form -->
     <div class="footer-cols">
-    <!-- LEFT: contact cards -->
-    <div class="footer-left">
 
-      <div class="footer-contacts">
+      <!-- LEFT: contact cards -->
+      <div class="footer-left">
+        <div class="footer-contacts">
 
         <a href="tel:+447949056654" class="footer-contact">
           <span class="contact-icon">📞</span>
@@ -1749,12 +1750,11 @@ footer {
           </span>
         </div>
 
-      </div>
-    </div>
-    </div><!-- /footer-left -->
+        </div><!-- /footer-contacts -->
+      </div><!-- /footer-left -->
 
-    <!-- RIGHT: form card -->
-    <div class="footer-right">
+      <!-- RIGHT: form card -->
+      <div class="footer-right">
       <div class="footer-form-card">
         <div class="footer-form-title" data-uk="Залишити заявку" data-en="Book a Cleaning">Book a Cleaning</div>
         <p class="footer-form-sub" data-uk="Заповніть форму — ми зв'яжемось найближчим часом" data-en="Fill in the form — we'll get back to you shortly">Fill in the form — we'll get back to you shortly</p>
@@ -1768,7 +1768,8 @@ footer {
           <button class="ff-btn" type="submit" data-uk="Надіслати →" data-en="Send →">Send →</button>
         </form>
       </div>
-    </div><!-- /footer-right -->
+      </div><!-- /footer-right -->
+
     </div><!-- /footer-cols -->
 
   </div>
