@@ -861,117 +861,178 @@ nav:not(.at-top) .burger span { background: var(--text); }
 
 /* ═══ FOOTER ═══ */
 footer {
-  background: var(--text);
+  background: #0a0a0a;
   color: rgba(255,255,255,.7);
-  padding: 70px 5% 0;
+  padding: 80px 5% 0;
 }
-.footer-grid {
+.footer-inner {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
-  gap: 50px;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
   max-width: 1200px;
   margin: 0 auto;
-  padding-bottom: 50px;
+  padding-bottom: 60px;
   border-bottom: 1px solid rgba(255,255,255,.08);
+  align-items: start;
 }
-.footer-logo {
+/* LEFT COLUMN */
+.footer-left {}
+.footer-tag {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 16px;
+}
+.footer-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  letter-spacing: -.03em;
+}
+.footer-desc {
+  font-size: .9rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 36px;
+  max-width: 420px;
+}
+.footer-contacts { display: flex; flex-direction: column; gap: 12px; }
+.footer-contact {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  text-decoration: none;
+  color: rgba(255,255,255,.85);
+  transition: background .25s, border-color .25s, transform .22s;
+}
+.footer-contact:hover {
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.18);
+  transform: translateX(5px);
+  color: #fff;
+}
+.contact-icon {
+  width: 46px; height: 46px;
+  border-radius: 13px;
+  background: rgba(255,255,255,.09);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+}
+.contact-icon svg { display: block; }
+.contact-text { display: flex; flex-direction: column; gap: 2px; }
+.contact-label {
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.38);
+}
+.contact-value {
+  font-size: .9rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* RIGHT COLUMN — inline form card */
+.footer-right {}
+.footer-form-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 24px;
+  padding: 36px 32px;
+}
+.footer-form-title {
   font-size: 1.4rem;
   font-weight: 800;
+  color: var(--rose);
+  margin-bottom: 6px;
+}
+.footer-form-sub {
+  font-size: .85rem;
+  color: rgba(255,255,255,.45);
+  margin-bottom: 28px;
+}
+.footer-form .ff-label {
+  display: block;
+  font-size: .78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 7px;
+  letter-spacing: .04em;
+}
+.footer-form .ff-input {
+  width: 100%;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
+  padding: 13px 16px;
   color: #fff;
-  margin-bottom: 10px;
-  letter-spacing: -.02em;
+  font-size: .9rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color .2s, background .2s;
+  box-sizing: border-box;
+  margin-bottom: 18px;
 }
-.footer-logo span { color: var(--rose); }
-.footer-slogan {
-  font-size: .88rem;
-  line-height: 1.55;
-  margin-bottom: 22px;
+.footer-form .ff-input::placeholder { color: rgba(255,255,255,.25); }
+.footer-form .ff-input:focus {
+  border-color: var(--rose);
+  background: rgba(255,255,255,.10);
 }
+.footer-form .ff-input:last-of-type { margin-bottom: 24px; }
+.footer-form .ff-btn {
+  width: 100%;
+  padding: 15px;
+  background: var(--rose);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity .2s, transform .2s;
+}
+.footer-form .ff-btn:hover { opacity: .88; transform: translateY(-2px); }
+
+/* FOOTER BOTTOM */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 0;
+  font-size: .8rem;
+  color: rgba(255,255,255,.22);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.footer-logo-wrap {
+  display: flex; align-items: center; gap: 10px;
+}
+/* legacy – kept for old references */
 .footer-socials { display: flex; gap: 10px; }
 .social-btn {
   width: 40px; height: 40px;
   background: rgba(255,255,255,.08);
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   font-size: 1.1rem;
   transition: background var(--tr), transform .2s;
   text-decoration: none;
   color: inherit;
 }
-.social-btn:hover {
-  background: var(--rose);
-  transform: translateY(-3px);
-}
-.footer-title {
-  font-size: .78rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.3);
-  margin-bottom: 18px;
-}
-.footer-nav { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-nav a {
-  font-size: .9rem;
-  transition: color var(--tr);
-}
-.footer-nav a:hover { color: var(--rose); }
-.footer-contacts { display: flex; flex-direction: column; gap: 10px; }
-.footer-contact {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 13px 16px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 16px;
-  text-decoration: none;
-  color: rgba(255,255,255,.85);
-  transition: background var(--tr), border-color var(--tr), transform .2s;
-}
-.footer-contact:hover {
-  background: rgba(255,255,255,.11);
-  border-color: rgba(255,255,255,.18);
-  transform: translateX(4px);
-  color: #fff;
-}
-.contact-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: rgba(255,255,255,.10);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 1.15rem;
-}
-.contact-icon svg { display: block; }
-.contact-text { display: flex; flex-direction: column; gap: 2px; }
-.contact-label {
-  font-size: .7rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.4);
-}
-.contact-value {
-  font-size: .88rem;
-  font-weight: 500;
-  color: #fff;
-}
-.footer-bottom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 0;
-  font-size: .8rem;
-  color: rgba(255,255,255,.25);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+.social-btn:hover { background: var(--rose); transform: translateY(-3px); }
 
 /* ═══ POPUP ═══ */
 #popup-overlay {
@@ -1120,8 +1181,7 @@ footer {
   .hero-bullets { grid-template-columns: 1fr 1fr; }
   .hero-bullet:last-child { grid-column: unset; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .footer-grid > *:first-child { grid-column: 1 / -1; }
+  .footer-inner { gap: 40px; }
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
@@ -1196,7 +1256,8 @@ footer {
 @media (max-width: 480px) {
   .hero-btns { grid-template-columns: 1fr; }
   .btn-primary, .btn-outline { font-size: .9rem; }
-  .footer-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+  .footer-form-card { padding: 24px 18px; }
   #popup { padding: 24px 16px; }
   /* Popup datetime */
   .popup-form input[type="datetime-local"] {
@@ -1621,36 +1682,14 @@ footer {
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logo">
-        <img src="logo.png" alt="London Home Crystal Service" style="height:48px;width:auto;margin-bottom:10px;">
-      </div>
-      <p style="color:rgba(255,255,255,.4);font-size:.78rem;font-style:italic;margin-bottom:6px;">The Cleaning White Company</p>
-      <p class="footer-slogan" data-uk="Ваш простір — наша пристрасть. Кришталева чистота з душею." data-en="Your space — our passion. Crystal clean, delivered with care.">Your space — our passion. Crystal clean, delivered with care.</p>
-      <div class="footer-socials">
-        <a href="https://t.me/londonhomecrystalservice" target="_blank" rel="noopener" class="social-btn" title="Telegram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-2.02 9.532c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.883.689z"/></svg>
-        </a>
-        <a href="https://api.whatsapp.com/send/?phone=%2B447949056654&text&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="social-btn" title="WhatsApp">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.52 14.27c-.23.63-1.35 1.22-1.86 1.26-.51.04-1 .19-3.38-.71-2.84-1.08-4.66-3.97-4.8-4.15-.14-.18-1.15-1.53-1.15-2.93s.73-2.07.99-2.35c.26-.28.57-.35.76-.35.19 0 .38.01.54.01.18.01.41-.07.64.49.23.57.79 1.93.86 2.07.07.14.12.3.02.48-.1.18-.15.3-.3.46-.15.16-.31.36-.44.48-.15.14-.3.3-.13.58.17.28.75 1.23 1.61 2 1.1.99 2.03 1.3 2.32 1.44.29.14.46.12.63-.07.17-.19.73-.85.92-1.14.19-.29.38-.24.64-.14.26.1 1.63.77 1.91.91.28.14.46.21.53.33.07.12.07.68-.16 1.31z"/></svg>
-        </a>
-        <a href="https://www.facebook.com/CrysralCWC" target="_blank" rel="noopener" class="social-btn" title="Facebook">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-        </a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-title" data-uk="Навігація" data-en="Navigation">Navigation</div>
-      <ul class="footer-nav">
-        <li><a href="#about" data-uk="Про нас" data-en="About Us">About Us</a></li>
-        <li><a href="#services" data-uk="Послуги" data-en="Services">Services</a></li>
-        <li><a href="#reviews" data-uk="Відгуки" data-en="Reviews">Reviews</a></li>
-        <li><a href="#faq" data-uk="FAQ" data-en="FAQ">FAQ</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-title" data-uk="Контакти" data-en="Contacts">Contacts</div>
+  <div class="footer-inner">
+
+    <!-- LEFT: heading + contact cards -->
+    <div class="footer-left">
+      <p class="footer-tag" data-uk="КОНТАКТИ" data-en="CONTACTS">CONTACTS</p>
+      <h2 class="footer-heading" data-uk="Зв'яжіться з нами" data-en="Get in touch">Get in touch</h2>
+      <p class="footer-desc" data-uk="Напишіть нам у Telegram або WhatsApp — відповідаємо зазвичай протягом кількох годин. Готові обговорити ваше замовлення безкоштовно." data-en="Message us on Telegram or WhatsApp — we usually reply within a few hours. Happy to discuss your booking for free.">Message us on Telegram or WhatsApp — we usually reply within a few hours. Happy to discuss your booking for free.</p>
+
       <div class="footer-contacts">
 
         <a href="tel:+447949056654" class="footer-contact">
@@ -1701,10 +1740,33 @@ footer {
 
       </div>
     </div>
+
+    <!-- RIGHT: form card -->
+    <div class="footer-right">
+      <div class="footer-form-card">
+        <div class="footer-form-title" data-uk="Залишити заявку" data-en="Book a Cleaning">Book a Cleaning</div>
+        <p class="footer-form-sub" data-uk="Заповніть форму — ми зв'яжемось найближчим часом" data-en="Fill in the form — we'll get back to you shortly">Fill in the form — we'll get back to you shortly</p>
+        <form class="footer-form" onsubmit="submitFooterForm(event)">
+          <label class="ff-label" data-uk="Ваше ім'я" data-en="Your name">Your name</label>
+          <input class="ff-input" type="text" name="name" placeholder="Jane / Ivan" required>
+          <label class="ff-label" data-uk="Телефон" data-en="Phone">Phone</label>
+          <input class="ff-input" type="tel" name="phone" placeholder="+44 000 000 0000" required>
+          <label class="ff-label" data-uk="Telegram (необов'язково)" data-en="Telegram (optional)">Telegram (optional)</label>
+          <input class="ff-input" type="text" name="telegram" placeholder="@username">
+          <button class="ff-btn" type="submit" data-uk="Надіслати →" data-en="Send →">Send →</button>
+        </form>
+      </div>
+    </div>
+
   </div>
+
+  <!-- bottom bar -->
   <div class="footer-bottom">
-    <span>© <span id="year"></span> — London Home Crystal Service | <span data-uk="Всі права захищені" data-en="All rights reserved">All rights reserved</span></span>
-    <span data-uk="Лондон, Великобританія" data-en="London, UK">London, UK</span>
+    <div class="footer-logo-wrap">
+      <img src="logo.png" alt="Logo" style="height:32px;width:auto;opacity:.7;">
+      <span>© <span id="year"></span> London Home Crystal Service</span>
+    </div>
+    <span data-uk="Всі права захищені" data-en="All rights reserved">All rights reserved</span>
   </div>
 </footer>
 
@@ -1916,6 +1978,15 @@ function setLang(lang) {
   /* Update submit button */
   const submitBtn = document.querySelector('.btn-submit');
   if (submitBtn) submitBtn.textContent = lang === 'uk' ? 'Надіслати заявку' : 'Send Request';
+}
+
+/* ═══ FOOTER CONTACT FORM ═══ */
+function submitFooterForm(e) {
+  e.preventDefault();
+  const name = e.target.name.value;
+  alert((currentLang === 'uk' ? 'Дякуємо, ' : 'Thank you, ') + name + '! 😊\n' +
+        (currentLang === 'uk' ? 'Ми зв\'яжемось з вами найближчим часом.' : 'We\'ll be in touch shortly.'));
+  e.target.reset();
 }
 
 /* ═══ FOOTER YEAR ═══ */
