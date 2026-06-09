@@ -132,10 +132,7 @@ nav:not(.at-top) .nav-links a:hover { color: var(--rose); }
   height: 42px;
   width: auto;
   display: block;
-  transition: filter var(--tr);
 }
-nav.at-top .nav-logo-img { filter: brightness(0) invert(1); }
-nav:not(.at-top) .nav-logo-img { filter: none; }
 
 .nav-links {
   display: flex;
@@ -709,11 +706,13 @@ nav:not(.at-top) .burger span { background: var(--text); }
   display: flex;
   gap: 20px;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   padding-bottom: 16px;
   max-width: 1200px;
   margin: 0 auto;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
 }
 .reviews-track::-webkit-scrollbar { height: 4px; }
 .reviews-track::-webkit-scrollbar-track { background: var(--lavender); border-radius: 4px; }
@@ -1199,7 +1198,7 @@ footer {
 <!-- ═══ NAVBAR ═══ -->
 <nav id="navbar" class="at-top">
   <div class="nav-logo">
-    <img src="logo.png" alt="London Home Crystal Service" class="nav-logo-img">
+    <img src="logo-white.png" alt="London Home Crystal Service" class="nav-logo-img" id="nav-logo-img">
   </div>
   <ul class="nav-links">
     <li><a href="#about" data-uk="Про нас" data-en="About">About</a></li>
@@ -1209,8 +1208,8 @@ footer {
   </ul>
   <div class="nav-right">
     <div class="lang-switcher">
-      <button class="lang-btn" onclick="setLang('uk')">UA</button>
       <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('uk')">UA</button>
     </div>
     <button class="btn-book-nav" onclick="openPopup()" data-uk="Записатись" data-en="Book Now">Book Now</button>
     <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Menu">
@@ -1295,7 +1294,7 @@ footer {
     <div class="about-content reveal">
       <div class="section-tag" data-uk="Про компанію" data-en="About Us">About Us</div>
       <h2 class="section-title" data-uk="Чистота — наша <em>пристрасть</em>, ваш комфорт — наш пріоритет" data-en="Cleaning is our <em>passion</em>, your comfort is our priority">Cleaning is our <em>passion</em>, your comfort is our priority</h2>
-      <p class="about-text" data-uk="London Home Crystal Service — це професійна клінінгова компанія, заснована у Східному Лондоні. Ми — команда з досвідом і душею, яка прагне надавати найвищу якість прибирання для приватних осіб та комерційних об'єктів. Ми використовуємо лише еко-сертифіковані засоби, безпечні для вашої родини та улюбленців. Понад 80% наших клієнтів повертаються знову — і це наша найкраща нагорода." data-en="London Home Crystal Service is a professional cleaning company based in East London. We are a team with years of experience and a spirit of care, dedicated to delivering the highest quality cleaning for both residential and commercial properties. We use only eco-certified products that are safe for your family and pets. Over 80% of our clients come back — and that is our greatest reward.">London Home Crystal Service is a professional cleaning company based in East London. We are a team with years of experience and a spirit of care, dedicated to delivering the highest quality cleaning for both residential and commercial properties. We use only eco-certified products that are safe for your family and pets. Over 80% of our clients come back — and that is our greatest reward.</p>
+      <p class="about-text" data-uk="London Home Crystal Service — професійна клінінгова компанія у Східному Лондоні. Наша команда з досвідом і душею надає послуги прибирання будинків та офісів, генеральне та глибоке очищення, прибирання при виїзді, прасування, догляд за садом та чищення килимів. Ми дотримуємось найвищих стандартів і завжди перевершуємо очікування клієнтів." data-en="London Home Crystal Service is a professional cleaning company based in East London, run by a team with years of experience and a spirit of care. We provide comprehensive home and office cleaning, deep cleaning, end of tenancy, ironing, garden maintenance and carpet cleaning for both residential and commercial properties. We are committed to the highest standards and exceeding every client's expectations.">London Home Crystal Service is a professional cleaning company based in East London, run by a team with years of experience and a spirit of care. We provide comprehensive home and office cleaning, deep cleaning, end of tenancy, ironing, garden maintenance and carpet cleaning for both residential and commercial properties. We are committed to the highest standards and exceeding every client's expectations.</p>
       <ul class="about-perks">
         <li class="about-perk">
           <div class="perk-check">✓</div>
@@ -1331,9 +1330,9 @@ footer {
       <div class="service-body">
         <div class="svc-num">01</div>
         <div class="svc-name" data-uk="Прибирання будинку та офісу" data-en="Home & Office Cleaning">Home & Office Cleaning</div>
-        <div class="svc-desc" data-uk="Комплексне прибирання: пилосос, миття підлог, санвузол, кухня. Ваш дім залишається бездоганним." data-en="Comprehensive cleaning tailored to your needs — dusting, vacuuming, mopping, bathroom & kitchen deep cleaning.">Comprehensive cleaning tailored to your needs — dusting, vacuuming, mopping, bathroom & kitchen deep cleaning.</div>
+        <div class="svc-desc" data-uk="Комплексне прибирання: пилосос, миття підлог, санвузол, кухня, загальне прибирання. Залишаємо будинок бездоганним." data-en="Comprehensive cleaning for homes and offices — dusting, vacuuming, mopping, bathroom sanitisation, kitchen deep cleaning and general tidying.">Comprehensive cleaning for homes and offices — dusting, vacuuming, mopping, bathroom sanitisation, kitchen deep cleaning and general tidying.</div>
         <div class="svc-footer">
-          <div class="svc-price" data-uk="£40–£80 / год." data-en="£40–£80 / hour">£40–£80 / hour</div>
+          <div class="svc-price" data-uk="£16–£20 (дім) / £18–£25 (офіс)" data-en="£16–£20 (home) / £18–£25 (office)">£16–£20 (home) / £18–£25 (office)</div>
           <div class="svc-arrow">→</div>
         </div>
       </div>
@@ -1348,9 +1347,9 @@ footer {
       <div class="service-body">
         <div class="svc-num">02</div>
         <div class="svc-name" data-uk="Генеральне прибирання" data-en="Deep Cleaning">Deep Cleaning</div>
-        <div class="svc-desc" data-uk="Інтенсивне прибирання кожної деталі: техніка, холодильник, кахель, жир — все до блиску." data-en="Intensive cleaning covering every detail — appliances, oven, fridge, tiles, grease removal and thorough bathroom treatment.">Intensive cleaning covering every detail — appliances, oven, fridge, tiles, grease removal and thorough bathroom treatment.</div>
+        <div class="svc-desc" data-uk="Інтенсивне прибирання зон, які зазвичай пропускають. Техніка, шафи, відкладений жир, вапняний наліт, плінтуси, світильники — все до блиску." data-en="Intensive cleaning reaching areas often missed in routine cleans — behind appliances, inside cabinets, bathroom descaling, kitchen degreasing, baseboards and built-up grime removal.">Intensive cleaning reaching areas often missed in routine cleans — behind appliances, inside cabinets, bathroom descaling, kitchen degreasing, baseboards and built-up grime removal.</div>
         <div class="svc-footer">
-          <div class="svc-price" data-uk="£40–£80 / год." data-en="£40–£80 / hour">£40–£80 / hour</div>
+          <div class="svc-price" data-uk="£20–£30 / год." data-en="£20–£30 / hour">£20–£30 / hour</div>
           <div class="svc-arrow">→</div>
         </div>
       </div>
@@ -1365,9 +1364,9 @@ footer {
       <div class="service-body">
         <div class="svc-num">03</div>
         <div class="svc-name" data-uk="Прибирання при виїзді" data-en="End of Tenancy Cleaning">End of Tenancy Cleaning</div>
-        <div class="svc-desc" data-uk="Спеціалізований сервіс для повернення депозиту. Агентський стандарт чистоти — гарантовано." data-en="Specialised service to help tenants recover their full deposit. Agency-standard clean, ensuring the property is left in pristine condition.">Specialised service to help tenants recover their full deposit. Agency-standard clean, ensuring the property is left in pristine condition.</div>
+        <div class="svc-desc" data-uk="Спеціалізований сервіс для повернення депозиту. Від чищення духовки до підвіконь — все за стандартами орендодавців та агентств." data-en="Specialised service to help tenants recover their full deposit — oven cleaning, window tracks, bathroom descaling and everything landlords and letting agencies require.">Specialised service to help tenants recover their full deposit — oven cleaning, window tracks, bathroom descaling and everything landlords and letting agencies require.</div>
         <div class="svc-footer">
-          <div class="svc-price" data-uk="від £190 / студія" data-en="from £190 / studio">from £190 / studio</div>
+          <div class="svc-price" data-uk="£20–£30 / год." data-en="£20–£30 / hour">£20–£30 / hour</div>
           <div class="svc-arrow">→</div>
         </div>
       </div>
@@ -1382,7 +1381,7 @@ footer {
       <div class="service-body">
         <div class="svc-num">04</div>
         <div class="svc-name" data-uk="Миття вікон" data-en="Professional Window Cleaning">Professional Window Cleaning</div>
-        <div class="svc-desc" data-uk="Кристально чисті вікна без розводів — зсередини та зовні. Для житла та комерції." data-en="Crystal-clear windows inside and out, no streaks. Specialist equipment for residential and commercial properties.">Crystal-clear windows inside and out, no streaks. Specialist equipment for residential and commercial properties.</div>
+        <div class="svc-desc" data-uk="Зовнішнє миття вікон для комерційних будівель і будинків. Спеціальне обладнання, без розводів, максимум денного світла." data-en="Specialised exterior window cleaning for commercial and residential properties. Professional equipment for any height — streak-free results that enhance kerb appeal and maximise natural light.">Specialised exterior window cleaning for commercial and residential properties. Professional equipment for any height — streak-free results that enhance kerb appeal and maximise natural light.</div>
         <div class="svc-footer">
           <div class="svc-price" data-uk="Ціна за запитом" data-en="Contact for quote">Contact for quote</div>
           <div class="svc-arrow">→</div>
@@ -1399,7 +1398,7 @@ footer {
       <div class="service-body">
         <div class="svc-num">05</div>
         <div class="svc-name" data-uk="Чищення килимів" data-en="Carpet Cleaning">Carpet Cleaning</div>
-        <div class="svc-desc" data-uk="Глибоке очищення килимів: видалення плям, запахів, алергенів. Продовжуємо термін служби ваших килимів." data-en="Deep extraction cleaning — removes stains, odours and allergens, extends carpet life and restores freshness.">Deep extraction cleaning — removes stains, odours and allergens, extends carpet life and restores freshness.</div>
+        <div class="svc-desc" data-uk="Глибоке видалення бруду, алергенів і плям промисловим обладнанням. Відновлюємо вигляд килима і покращуємо якість повітря в приміщенні." data-en="Deep treatment using industrial-grade equipment — removes embedded dirt, allergens and stains, extends carpet life and improves indoor air quality.">Deep treatment using industrial-grade equipment — removes embedded dirt, allergens and stains, extends carpet life and improves indoor air quality.</div>
         <div class="svc-footer">
           <div class="svc-price" data-uk="Ціна за запитом" data-en="Contact for quote">Contact for quote</div>
           <div class="svc-arrow">→</div>
@@ -1416,10 +1415,10 @@ footer {
       <div class="service-body">
         <div class="svc-num">06</div>
         <div class="hit-badge" data-uk="⭐ Найпопулярніше" data-en="⭐ Most Popular">⭐ Most Popular</div>
-        <div class="svc-name" data-uk="Кришталевий пакет: Повне прибирання" data-en="Crystal Package: Full Home Clean">Crystal Package: Full Home Clean</div>
-        <div class="svc-desc" data-uk="Генеральне + вікна + килими + прасування — все за один візит. Найвигідніше рішення." data-en="Deep clean + windows + carpet + ironing — all in one visit. Best value complete home care solution.">Deep clean + windows + carpet + ironing — all in one visit. Best value complete home care solution.</div>
+        <div class="svc-name" data-uk="Кришталевий пакет: Повний догляд" data-en="Crystal Package: Complete Home Care">Crystal Package: Complete Home Care</div>
+        <div class="svc-desc" data-uk="Глибоке прибирання + вікна + килими + прасування + сад — все в одному візиті. Найвигідніше комплексне рішення для дому." data-en="Deep clean + windows + carpet + ironing + garden tidy — all in one visit. The best-value complete home care solution, tailored to your needs.">Deep clean + windows + carpet + ironing + garden tidy — all in one visit. The best-value complete home care solution, tailored to your needs.</div>
         <div class="svc-footer">
-          <div class="svc-price" data-uk="від £150" data-en="from £150">from £150</div>
+          <div class="svc-price" data-uk="від £50 / год." data-en="from £50 / hour">from £50 / hour</div>
           <div class="svc-arrow">→</div>
         </div>
       </div>
@@ -1596,8 +1595,9 @@ footer {
   <div class="footer-grid">
     <div>
       <div class="footer-logo">
-        <img src="logo.png" alt="London Home Crystal Service" style="height:48px;width:auto;filter:brightness(0) invert(1);margin-bottom:10px;">
+        <img src="logo-white.png" alt="London Home Crystal Service" style="height:48px;width:auto;margin-bottom:10px;">
       </div>
+      <p style="color:rgba(255,255,255,.4);font-size:.78rem;font-style:italic;margin-bottom:6px;">The Cleaning White Company</p>
       <p class="footer-slogan" data-uk="Ваш простір — наша пристрасть. Кришталева чистота з душею." data-en="Your space — our passion. Crystal clean, delivered with care.">Your space — our passion. Crystal clean, delivered with care.</p>
       <div class="footer-socials">
         <a href="https://instagram.com/vmendaliuk" target="_blank" rel="noopener" class="social-btn" title="Instagram">📸</a>
@@ -1710,11 +1710,14 @@ for (let i = 0; i < 18; i++) {
 
 /* ═══ NAVBAR ═══ */
 const navbar = document.getElementById('navbar');
+const navLogoImg = document.getElementById('nav-logo-img');
 function handleScroll() {
   if (window.scrollY < 60) {
     navbar.classList.add('at-top');
+    if (navLogoImg) navLogoImg.src = 'logo-white.png';
   } else {
     navbar.classList.remove('at-top');
+    if (navLogoImg) navLogoImg.src = 'logo.png';
   }
   /* Hero parallax */
   const hero = document.getElementById('hero');
